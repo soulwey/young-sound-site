@@ -185,3 +185,87 @@ em{color:var(--acid);font-style:normal}.live-dot,.status-orbit{display:inline-bl
 @media(prefers-reduced-motion:reduce){.case-featured .case-art:before{animation:none}}
 
 .case-actions{display:flex;align-items:center;gap:12px 24px;flex-wrap:wrap}.case-actions .case-promo-link{color:#caff76;font-weight:900}.case-actions .case-link{width:max-content;max-width:100%;display:inline-block;margin-bottom:4px}
+
+
+/* YS: clearly visible tariff labels – 2026-10 update */
+.service-card{min-height:380px;padding-bottom:27px}
+.service-card .service-bottom{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:18px;
+  margin-top:28px;
+  padding-top:20px;
+  border-top:1px solid #6b885b68;
+  letter-spacing:normal;
+}
+.service-price-wrap{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:8px;
+  position:relative;
+}
+.service-price-wrap small{
+  color:#aebcaf;
+  font:800 10px/1.2 var(--body);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.service-card .service-price{
+  font:900 clamp(25px,2.55vw,39px)/1.18 var(--display);
+  letter-spacing:-.075em;
+  text-transform:none;
+  color:#c2ff54;
+  text-shadow:0 0 30px #b7ff5141;
+  display:block;
+  overflow-wrap:break-word;
+}
+.service-card:nth-child(4) .service-price{font-size:clamp(22px,2.15vw,32px)}
+.service-card .circle-link{
+  width:49px;height:49px;min-width:49px;
+  font-size:24px;
+  border-color:#bfff90;
+  background:#b7ff5820;
+}
+.services-grid>.service-card:nth-child(5){
+  grid-column:span 2;
+  border-color:#b4ff6b95;
+  background:
+    radial-gradient(ellipse at 85% 20%,#6fac4b28 0,transparent 55%),
+    linear-gradient(130deg,#202e20,#101814 75%);
+}
+.services-grid>.service-card:nth-child(5)::after{
+  content:'✳';position:absolute;right:9%;top:14%;
+  font:200px/1 Arial;color:#b7ff5a1c;
+  pointer-events:none;z-index:-1;
+}
+.services-grid>.service-card:nth-child(5) .service-price{
+  font-size:clamp(31px,3.25vw,51px);
+  color:#dcffa7;
+}
+.mini-prices>a{padding:27px;gap:20px}
+.mini-prices>a>div{gap:14px;min-width:0}
+.mini-prices>a .mini-price{
+  color:#c2ff54;
+  font:900 clamp(24px,2.1vw,34px)/1.15 var(--display);
+  letter-spacing:-.06em;
+  text-transform:none;
+  overflow-wrap:anywhere;
+}
+.mini-prices>a:hover{border-color:#b5ff72;box-shadow:0 0 25px #b8ff4c16}
+@media(max-width:950px){
+  .service-card{min-height:370px}
+  .service-card .service-price{font-size:clamp(24px,3.2vw,34px)}
+  .services-grid>.service-card:nth-child(5) .service-price{font-size:clamp(30px,4.6vw,44px)}
+}
+@media(max-width:640px){
+  .services-grid>.service-card:nth-child(5){grid-column:span 1}
+  .services-grid>.service-card:nth-child(5)::after{font-size:130px}
+  .service-card{min-height:325px}
+  .service-card .service-price{font-size:clamp(26px,7vw,36px)}
+  .service-card:nth-child(4) .service-price{font-size:clamp(22px,6vw,31px)}
+  .services-grid>.service-card:nth-child(5) .service-price{font-size:clamp(31px,8vw,43px)}
+  .mini-prices>a .mini-price{font-size:clamp(23px,6.5vw,32px)}
+}
