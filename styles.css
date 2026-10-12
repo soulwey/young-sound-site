@@ -152,3 +152,34 @@ em{color:var(--acid);font-style:normal}.live-dot,.status-orbit{display:inline-bl
 @media(max-width:1220px){.roster-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:840px){.roster-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 13px}.label-catalog-disc{right:-380px;opacity:.45}.roster-toolbar{flex-direction:column;align-items:stretch}}
 @media(max-width:540px){.roster-grid{gap:22px 10px}.roster-serial{font-size:8px;top:7px;left:7px;padding:6px}.roster-info h3{font-size:16px}.roster-info p{font-size:10px}.roster-info>span{font-size:18px}.roster-meta{display:block;font-size:8px}.roster-meta span{display:none}.roster-abstract b{font-size:52px}.label-catalog-inner{min-height:380px;padding:54px 0}.label-catalog-copy h2{font-size:clamp(45px,11vw,63px)}.label-catalog-copy p{font-size:12px}.label-catalog-disc{right:-460px}.roster-bottom{flex-direction:column;align-items:stretch}.roster-bottom .ys-btn{justify-content:center}}
+
+
+/* YOUNG SOUND 2026: HERO MY WAVE CASE + DEMO SUBMISSION */
+.case-featured{border-color:#aaff5b77!important;box-shadow:0 0 0 1px #baff7520,0 25px 100px #aaff3413}
+.case-featured .case-head{background:linear-gradient(90deg,#233b22,#141d17);border-bottom:1px solid #b7ff7045}
+.case-featured .case-art{background:radial-gradient(circle at 60% 43%,#b3cf72 0,#435e40 32%,#121c16 74%)!important}
+.case-featured .case-art:before{content:"";position:absolute;inset:-30%;background:conic-gradient(from 120deg at 50% 50%,#d4ff7700,#d3ff7439,#d4ff7700,#f4e67440,#d4ff7700);filter:blur(16px);animation:caseWave 16s ease-in-out infinite alternate}
+.wave-case-mark{position:absolute;left:50%;top:43%;transform:translate(-50%,-50%) rotate(-7deg);width:100%;z-index:1;text-align:center;font:900 clamp(45px,6vw,95px)/.88 var(--display);letter-spacing:-.095em;color:#f3ffe9;text-shadow:0 8px 1px #132218,0 0 75px #ccff83;white-space:nowrap}
+.case-featured .case-art-ring{border:2px solid #dcff8d7a;box-shadow:0 0 0 30px #baff7825,0 0 0 105px #cdfb5b11,0 0 130px #aaff5f4d,inset 0 0 130px #b0ff662b}
+.case-featured .case-art-title{font-size:clamp(20px,2.2vw,31px)!important;line-height:1.2}
+.case-featured .case-metrics{gap:25px}
+.case-featured .case-metrics strong{font-size:clamp(29px,3.5vw,58px);white-space:nowrap;letter-spacing:-.08em}
+.case-featured .case-body h3{font-size:clamp(29px,3vw,50px);letter-spacing:-.065em}
+.case-proof{font-size:10px!important;min-height:auto!important;color:#a6d59b!important;padding:0 0 12px;margin:0!important}
+@keyframes caseWave{to{transform:rotate(50deg) scale(1.1);filter:blur(25px)}}
+.demo-layout{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(35px,6vw,100px);align-items:start}
+.demo-manifesto{padding-top:20px;position:sticky;top:112px}
+.demo-manifesto h2{font:900 clamp(38px,4vw,67px)/1.06 var(--display);letter-spacing:-.065em;margin:32px 0}
+.demo-manifesto p{color:#a8bca9;font-size:14px;line-height:1.85;max-width:510px}
+.demo-instructions{margin:42px 0;padding:20px 0;display:grid;gap:17px;border-top:1px solid #425944;border-bottom:1px solid #425944}
+.demo-instructions span{font:800 12px var(--display);color:#d8ebd2}
+.demo-panel .contact-panel{width:100%}
+.demo-panel form{display:grid;grid-template-columns:1fr 1fr;gap:19px 15px}
+.demo-panel label:has(input[name=demoLink]),.demo-panel label:has(textarea),.demo-panel .demo-agreement,.demo-panel .form-submit,.demo-panel .form-caption,.demo-panel .form-feedback{grid-column:1/-1}
+.demo-agreement{display:flex!important;flex-direction:row!important;gap:13px!important;align-items:flex-start}
+.demo-agreement input[type=checkbox]{appearance:auto;width:18px;min-width:18px;height:18px;min-height:18px;padding:0;margin:1px 0 0;accent-color:var(--acid)}
+.demo-agreement span{font:500 12px/1.7 var(--body);letter-spacing:0;text-transform:none}
+.demo-panel .form-submit{width:100%;justify-content:center}
+@media(max-width:1150px){.demo-layout{grid-template-columns:1fr}.demo-manifesto{position:static}.demo-manifesto h2{font-size:clamp(38px,6vw,55px)}}
+@media(max-width:700px){.demo-panel form{grid-template-columns:1fr}.demo-panel label{grid-column:1/-1}.case-featured .case-metrics strong{font-size:clamp(26px,7vw,41px)}.wave-case-mark{font-size:clamp(46px,10vw,68px)}.demo-manifesto h2{font-size:clamp(34px,8vw,48px)}}
+@media(prefers-reduced-motion:reduce){.case-featured .case-art:before{animation:none}}
