@@ -182,7 +182,11 @@
         <label>НЕНОРМАТИВНАЯ ЛЕКСИКА?<select name="explicit"><option>Нет</option><option>Да</option></select></label>
         <label>АВТОР ТЕКСТА<input name="authors" maxlength="300" placeholder="ФИО или псевдоним"></label>
         <label>КОМПОЗИТОР / БИТМЕЙКЕР<input name="composer" maxlength="300" placeholder="ФИО или псевдоним"></label>
-        <label>ПРАВООБЛАДАТЕЛЬ<input name="owner" maxlength="250" placeholder="ФИО, ИП или организация"></label>
+        <label class="upload-file instrumental-agreement">ДОГОВОР / ЛИЦЕНЗИЯ НА ИНСТРУМЕНТАЛ (ЕСЛИ ЕСТЬ)
+          <input id="instrumental-file" name="instrumentalAgreement" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/jpeg,image/png,image/webp">
+          <span class="upload-file-visual"><b>▣</b><span>ПРИКРЕПИТЬ ДОГОВОР<small id="instrumental-filename">PDF / DOC / DOCX / JPG / PNG · до 10 МБ</small></span></span>
+          <small class="instrumental-note">Если бит собственный и договора нет, оставь поле пустым. Не прикрепляй сканы паспорта и данные банковских карт.</small>
+        </label>
         <label>ISRC (ЕСЛИ ЕСТЬ)<input name="isrc" maxlength="40" placeholder="Необязательно"></label>
       </div>
       <div class="form-stage"><span>02</span> КАРТОЧКИ МУЗЫКАНТА И ОТРЫВОК</div>
