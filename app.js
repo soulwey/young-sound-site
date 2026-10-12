@@ -12,7 +12,7 @@
   const serviceCard = x=>`<article class="service-card reveal"><div class="service-top"><span>${x.n} / ${x.type}</span><span class="service-symbol">${x.symbol}</span></div><div><h3>${x.title}</h3><p>${x.desc}</p></div><div class="service-bottom"><div class="service-price-wrap"><small>СТОИМОСТЬ УСЛУГИ</small><strong class="service-price">${x.price}</strong></div>${a(`contacts.html?service=${encodeURIComponent(x.title)}`,'↗','circle-link')}</div></article>`;
   const serviceSection = (limit) => `<section class="wrap block" id="services">${eyebrow('01 / ЧТО ДЕЛАЕМ','END-TO-END SOUND')}${title('ТВОЯ МУЗЫКА.<br><em>НАША РАБОТА.</em>','Все этапы — в одном месте. Никакой конвейерной магии, только команда и конкретные задачи.')}<div class="services-grid">${d.services.slice(0,limit||d.services.length).map(serviceCard).join('')}</div>${limit?`<div class="section-cta">${button('Все услуги','services.html','button-outline')}</div>`:''}</section>`;
   const caseCard = x=>`<article class="case-card reveal ${x.featured?'case-featured':''} ${x.cover?'has-art':''}"><div class="case-head"><span class="tag">${x.type}</span><span class="case-index">YS // ${x.id.toUpperCase()}</span></div><a href="${x.source}" target="_blank" rel="noopener noreferrer" class="case-art" aria-label="Открыть: ${x.artist} — ${x.track}">${x.cover?`<img src="${x.cover}" alt="Обложка ${x.artist} — ${x.track}" loading="lazy" decoding="async">`:x.id==='euphoria'?'<span class="wave-case-mark">МОЯ<br>ВОЛНА</span><span class="case-art-ring"></span>':'<span class="case-art-ring"></span>'}<div class="case-art-title">${x.artist}<small>— ${x.track}</small></div><span class="case-art-symbol">↗</span></a><div class="case-body"><h3>${x.title}</h3><p>${x.details}</p><div class="case-metrics"><div><strong>${x.a}</strong><span>${x.aLabel}</span></div>${x.b?`<div><strong>${x.b}</strong><span>${x.bLabel}</span></div>`:''}</div>${x.proof?`<p class="case-proof">✳ ${x.proof}</p>`:''}<div class="case-actions">${a(x.source,`${x.sourceLabel||'Смотреть кейс'} ${arrow}`,'case-link')}${x.featured?a('contacts.html?service='+encodeURIComponent('Продвижение в «Моей волне»'),'Обсудить продвижение ↗','case-link case-promo-link'):''}</div></div></article>`;
-  const caseSection = () => `<section class="wrap block" id="cases">${eyebrow('02 / ПРАКТИКА','NO EMPTY PROMISES')}${title('НЕ СЛОВА.<br><em>РЕЗУЛЬТАТЫ.</em>','Результаты продвижения в «Моей волне» по предоставленным скриншотам и публикациям лейбла.') }<div class="case-grid">${d.cases.map(caseCard).join('')}</div></section>`;
+  const caseSection = () => `<section class="wrap block" id="cases">${eyebrow('04 / КЕЙСЫ ПРОДВИЖЕНИЯ','NO EMPTY PROMISES')}${title('НЕ СЛОВА.<br><em>РЕЗУЛЬТАТЫ.</em>','Результаты продвижения в «Моей волне» по предоставленным скриншотам и публикациям лейбла.') }<div class="case-grid">${d.cases.map(caseCard).join('')}</div></section>`;
   const packageCard=p=> `<article class="package-card reveal ${p.featured?'popular':''}"><div class="package-overline"><span>PACKAGE // ${p.n}</span>${p.featured?'<span class="popular-label">✳ ЧАСТО ВЫБИРАЮТ</span>':''}</div><h3>${p.title}</h3><p class="package-sub">${p.subtitle}</p><div class="package-price">${p.price}</div><p class="package-caption">${p.caption}</p><div class="package-rule"></div><ul class="package-features">${p.items.map(([label,yes])=>`<li class="${yes?'yes':'no'}"><span>${yes?'✳':'—'}</span>${label}</li>`).join('')}</ul>${button('Обсудить пакет',`contacts.html?service=${encodeURIComponent(p.title)}`,p.featured?'button-primary':'button-outline')}</article>`;
   const packageSection =()=> `<section class="wrap block packages" id="packages">${eyebrow('03 / ФОРМАТ РАБОТЫ','YOUR SOUND / YOUR RULES')}${title('ВЫБЕРИ СВОЙ<br><em>УРОВЕНЬ.</em>','Не готовые обещания за фиксированную сумму, а отправные точки для обсуждения твоего релиза.')}<div class="package-grid">${d.packages.map(packageCard).join('')}</div><p class="package-note">* Комплектация пакетов примерная. Итоговая стоимость согласовывается до начала работ.</p></section>`;
   const tape =()=>`<div class="marquee" aria-hidden="true"><div class="marquee-inner">${Array(4).fill('<span>YOUNG SOUND</span><b>✳</b><span>MAKE IT LOUD</span><b>✳</b><span>INDEPENDENT SOUND</span><b>✳</b>').join('')}</div></div>`;
@@ -32,11 +32,11 @@
         <div class="ys-promo-name">${name}</div></div>`).join('')}</div>
     </div>`).join('');
     return `<section class="wrap block ys-promo" id="playlist-promo">
-      ${eyebrow('04 / РЕАЛЬНАЯ ПОДДЕРЖКА','PROMO / YOUNG SOUND')}
+      ${eyebrow('02 / ПЛЕЙЛИСТЫ','EDITORIAL & PLAYLIST SUPPORT')}
       ${title('НАШИ АРТИСТЫ<br><em>РЕГУЛЯРНО ПОЛУЧАЮТ ПРОМО.</em>','Релизы Young Sound появляются в заметных плейлистах и музыкальных подборках. Вот часть плейлистов из наших публикаций.')}
       <div class="ys-promo-feature reveal"><div><span class="ys-promo-kicker">ПРОМО, КОТОРОЕ ВИДНО</span><h3>В ГЛАВНЫХ<br><em>ПОДБОРКАХ.</em></h3></div><p>Мы поддерживаем музыку после релиза: работаем над охватом, помогаем артистам попадать в подборки и знакомиться с новой аудиторией. В галерее — реальные обложки плейлистов со скриншотов Young Sound.</p><span class="ys-promo-feature-star" aria-hidden="true">✳</span></div>
       <div class="ys-promo-collections">${strips}</div>
-      <div class="ys-promo-footer"><p>Внешний вид подборок зафиксирован на предоставленных скриншотах. Состав плейлистов со временем меняется.</p>${button('Обсудить продвижение','contacts.html?service='+encodeURIComponent('Продвижение в «Моей волне»'),'button-outline')}</div>
+      <div class="ys-promo-footer"><p>Внешний вид подборок зафиксирован на предоставленных скриншотах. Состав плейлистов со временем меняется.</p>${button('Далее — продвижение в «Моей волне»','#wave-promo','button-outline')}</div>
     </section>`;
   };
 
@@ -47,10 +47,63 @@
   const cta =()=>`<section class="final-cta"><div class="wrap final-cta-inner"><div><span class="micro">READY WHEN YOU ARE ///</span><h2>ПОРА<br><em>ЗВУЧАТЬ.</em></h2><p>Есть трек, идея или просто вопрос? Напиши нам. Разберёмся, что нужно именно твоему проекту.</p>${button('Отправить демо','demo.html','button-light')}</div><div class="giant-asterisk" aria-hidden="true">✳</div></div></section>`;
   const header=()=>`<header class="site-header"><div class="wrap header-inner"><a class="wordmark" href="index.html" aria-label="Young Sound: главная"><span class="wordmark-star">✳</span><span>YOUNG<br><strong>SOUND</strong></span></a><nav id="desktop-nav" aria-label="Навигация">${navHtml()}</nav><div class="nav-cta">${button('Отправить демо','demo.html','nav-button')}</div><button class="mobile-toggle" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span></button></div><nav class="mobile-menu" aria-label="Мобильная навигация">${navHtml()}${a('demo.html','ОТПРАВИТЬ ДЕМО ↗')}</nav></header>`;
   const footer=()=>`<footer class="footer"><div class="wrap"><div class="footer-top"><div><a class="footer-logo" href="index.html">YOUNG<span>✳</span><br>SOUND</a><p>Запись. Продакшн. Дистрибуция.<br>Продвижение. Все этапы одного звука.</p></div><div class="footer-nav"><div><small>НАВИГАЦИЯ</small>${nav.map(([t,url])=>a(url,t)).join('')}</div><div><small>НА СВЯЗИ</small>${a(d.links.telegram,'TELEGRAM ↗')}${a(d.links.vk,'ВКОНТАКТЕ ↗')}${a(d.links.yandexLabel,'ЛЕЙБЛ / ЯНДЕКС МУЗЫКА ↗')}${a(d.links.manager,'МЕНЕДЖЕР ↗')}${a(d.links.map,'ЯНДЕКС КАРТЫ ↗')}${a(d.links.phone,'ПОЗВОНИТЬ ↗')}</div></div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} YOUNG SOUND</span><span>${a('privacy.html','ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ')}</span><span>MADE FOR MUSIC ✳</span></div></div></footer>`;
-  const hero=()=>`<main><section class="hero"><div class="hero-noise"></div><div class="wrap hero-inner"><div class="hero-copy"><div class="hero-meta"><span class="live-dot"></span>YOUNG SOUND / СТУДИЯ И ЛЕЙБЛ</div><h1>ТВОЙ ЗВУК.<br><span>ТВОИ</span><br><em>ПРАВИЛА.</em></h1><div class="hero-bottom"><p>От первой идеи до релиза в рекомендациях. Делаем музыку, визуал и продвижение в одном месте.</p><div class="hero-buttons">${button('Отправить демо','demo.html')}${button('Наши кейсы','cases.html','button-glass')}</div></div></div><div class="hero-graphic" aria-hidden="true"><div class="orbit orbit-1"></div><div class="orbit orbit-2"></div><div class="orbit-center"><span>YS</span><small>✳ EST. FOR MUSIC ✳</small></div><div class="hero-corner-label">STAY<br>YOUNG.<br>SOUND<br>LOUD.</div><div class="wave-bars">${Array.from({length:39},(_,i)=>`<i style="--h:${16+Math.round((Math.sin(i*0.72)+1)*15+(Math.sin(i*1.77)+1)*16)}px;--i:${i}"></i>`).join('')}</div></div></div><div class="hero-foot wrap"><span>001 — ПОЛНЫЙ ЦИКЛ РЕЛИЗА</span><span>СКРОЛЛ ВНИЗ ↓</span><span>МОСКОВСКАЯ ОБЛАСТЬ / ONLINE WORLDWIDE</span></div></section>${tape()}${serviceSection(6)}${caseSection()}${trust()}${reviews()}${packageSection()}${playlistPromo()}${artistRoster(true)}${releases()}${cta()}</main>`;
+
+  /* Label-first homepage: distribution -> playlists -> My Wave -> studio work. */
+  const distributionFeature=()=>{
+    const service=d.services.find(s=>s.title==='Дистрибуция');
+    return `<section class="wrap block ys-label-first" id="distribution">
+      ${eyebrow('01 / ДИСТРИБУЦИЯ','RELEASE WITH YOUNG SOUND')}
+      <div class="ys-label-first-layout">
+        <div class="ys-label-first-heading reveal">
+          <span class="ys-step-pill">YOUNG SOUND / LABEL</span>
+          <h2>ТВОЙ РЕЛИЗ.<br><em>НА ВСЕХ ПЛОЩАДКАХ.</em></h2>
+          <p>Помогаем артистам выпустить музыку на стримингах: подготовить трек, оформить данные релиза и передать его для публикации.</p>
+          <div class="ys-label-actions">
+            ${button('Отгрузить трек','submit.html')}
+            ${button('Что входит в выпуск?','services.html#distribution','button-outline')}
+          </div>
+        </div>
+        <div class="ys-label-first-panel reveal">
+          <div class="ys-label-panel-kicker">ДИСТРИБУЦИЯ / 1 ТРЕК <span>↗</span></div>
+          <div class="ys-label-panel-number">2 300 <small>₽</small></div>
+          <p>Стоимость дистрибуции одного трека</p>
+          <div class="ys-label-panel-lines">
+            <div><span>01</span> Подготовка метаданных</div>
+            <div><span>02</span> Ссылки на карточки артиста</div>
+            <div><span>03</span> Проверка материалов для релиза</div>
+            <div><span>04</span> Отправка на музыкальные площадки</div>
+          </div>
+          <div class="ys-label-panel-foot">Обсуждаем дату и состав работ до запуска</div>
+        </div>
+      </div>
+    </section>`;
+  };
+  const myWaveFeature=()=>{
+    const service=d.services.find(s=>s.title==='Продвижение в «Моей волне»');
+    return `<section class="wrap block ys-wave-feature" id="wave-promo">
+      ${eyebrow('03 / ПРОДВИЖЕНИЕ','YANDEX MUSIC / MY WAVE')}
+      <div class="ys-wave-feature-inner reveal">
+        <div class="ys-wave-feature-content">
+          <span class="ys-step-pill">ПОСЛЕ РЕЛИЗА / БОЛЬШЕ СЛУШАТЕЛЕЙ</span>
+          <h2>ПРОДВИЖЕНИЕ<br>В <em>«МОЕЙ ВОЛНЕ».</em></h2>
+          <p>После выпуска работаем над тем, чтобы музыку услышала новая аудитория. Продвижение в рекомендациях Яндекс Музыки строится индивидуально — результат и попадания не гарантируются.</p>
+          <div class="ys-wave-feature-actions">${button('Обсудить продвижение','contacts.html?service='+encodeURIComponent(service.title))}${button('Посмотреть результаты','cases.html','button-outline')}</div>
+        </div>
+        <div class="ys-wave-feature-offer"><span>СТАРТ ПРОДВИЖЕНИЯ ОТ</span><strong>45 000 <small>₽</small></strong><div>ИНДИВИДУАЛЬНАЯ ПРОМО-КАМПАНИЯ <b>✳</b></div></div>
+      </div>
+    </section>`;
+  };
+  const studioServices=()=>`<section class="wrap block ys-studio-services" id="studio-services">
+    ${eyebrow('05 / СТУДИЯ','RECORDING / MIX / BEATS')}
+    ${title('ЗАПИШЕМ.<br><em>СВЕДЁМ. СОЗДАДИМ.</em>','Помимо дистрибуции и продвижения, поможем сделать саму музыку: от записи вокала до финального мастера и оригинального бита.')}
+    <div class="services-grid">${d.services.filter(s=>s.title!=='Дистрибуция'&&!s.title.includes('Моей волне')).map(serviceCard).join('')}</div>
+    <div class="section-cta">${button('Все услуги и цены','pricing.html','button-outline')}</div>
+  </section>`;
+
+  const hero=()=>`<main><section class="hero"><div class="hero-noise"></div><div class="wrap hero-inner"><div class="hero-copy"><div class="hero-meta"><span class="live-dot"></span>YOUNG SOUND / СТУДИЯ И ЛЕЙБЛ</div><h1>ТВОЙ ЗВУК.<br><span>ТВОИ</span><br><em>ПРАВИЛА.</em></h1><div class="hero-bottom"><p>От первой идеи до релиза в рекомендациях. Делаем музыку, визуал и продвижение в одном месте.</p><div class="hero-buttons">${button('Отправить демо','demo.html')}${button('Наши кейсы','cases.html','button-glass')}</div></div></div><div class="hero-graphic" aria-hidden="true"><div class="orbit orbit-1"></div><div class="orbit orbit-2"></div><div class="orbit-center"><span>YS</span><small>✳ EST. FOR MUSIC ✳</small></div><div class="hero-corner-label">STAY<br>YOUNG.<br>SOUND<br>LOUD.</div><div class="wave-bars">${Array.from({length:39},(_,i)=>`<i style="--h:${16+Math.round((Math.sin(i*0.72)+1)*15+(Math.sin(i*1.77)+1)*16)}px;--i:${i}"></i>`).join('')}</div></div></div><div class="hero-foot wrap"><span>001 — ПОЛНЫЙ ЦИКЛ РЕЛИЗА</span><span>СКРОЛЛ ВНИЗ ↓</span><span>МОСКОВСКАЯ ОБЛАСТЬ / ONLINE WORLDWIDE</span></div></section>${tape()}${distributionFeature()}${playlistPromo()}${myWaveFeature()}${caseSection()}${studioServices()}${trust()}${reviews()}${packageSection()}${artistRoster(true)}${releases()}${cta()}</main>`;
   const pageHero=(number,kicker,h,desc)=>`<section class="subhero wrap"><div class="subhero-meta"><span class="live-dot"></span> YS / ${number} / ${kicker}</div><h1>${h}</h1><p>${desc}</p><span class="subhero-glyph">✳</span></section>`;
   const home=hero;
-  const services=()=> `<main>${pageHero('01','ЧТО МЫ ДЕЛАЕМ','ПОЛНЫЙ <em>ЦИКЛ.</em>','Хорошая музыка не заканчивается кнопкой «экспорт». Мы рядом на каждом этапе.')}${serviceSection()}${playlistPromo()}${cta()}</main>`;
+  const services=()=> `<main>${pageHero('01','ЧТО МЫ ДЕЛАЕМ','ПОЛНЫЙ <em>ЦИКЛ.</em>','Сначала выпускаем музыку, показываем результаты в плейлистах, затем помогаем с продвижением. Запись, сведение и биты — тоже у нас.')}${distributionFeature()}${playlistPromo()}${myWaveFeature()}${studioServices()}${cta()}</main>`;
   const pricing=()=>`<main>${pageHero('02','ПАКЕТЫ И УСЛУГИ','ТАРИФЫ <em>БЕЗ МАГИИ.</em>','Актуальные цены на основные услуги. Пакеты и продвижение рассчитываем индивидуально.')}${packageSection()}<section class="wrap block">${eyebrow('02 / ОТДЕЛЬНЫЕ УСЛУГИ','A LA CARTE')}${title('НУЖНА ОДНА<br><em>КОНКРЕТНАЯ ВЕЩЬ?</em>')}<div class="mini-prices">${d.services.map(s=>`<a href="contacts.html?service=${encodeURIComponent(s.title)}"><div><strong>${s.title}</strong><span class="mini-price">${s.price}</span></div><b>↗</b></a>`).join('')}</div><p class="package-note">Указанные цены актуализированы владельцем Young Sound. Детали и состав работ уточни перед заказом.</p></section>${cta()}</main>`;
   const cases=()=>`<main>${pageHero('03','НАШИ РАБОТЫ','ЗВУК, <em>КОТОРЫЙ СЛЫШАТ.</em>','Скриншоты и цифры не заменяют музыку. Но подтверждают, что мы действительно работаем с релизами.')}${caseSection()}${trust()}${reviews()}${releases()}${cta()}</main>`;
   const artists=()=>`<main>${pageHero('04','АРТИСТЫ И КАТАЛОГ','У КАЖДОГО<br><em>СВОЙ ЗВУК.</em>','Знакомься с артистами и релизами Young Sound. Полный каталог находится в Яндекс Музыке.')}${labelBanner()}${artistRoster()}${releases()}${cta()}</main>`;
