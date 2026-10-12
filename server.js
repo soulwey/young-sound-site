@@ -74,7 +74,7 @@ const limiter = rateLimit({windowMs:60*60*1000,limit:5,standardHeaders:'draft-7'
   message:{ok:false,error:'Слишком много отправок. Подождите час или напишите менеджеру в Telegram.'}});
 const upload = multer({
  storage:multer.memoryStorage(),
- limits:{fileSize:45*1024*1024,files:3,fields:45,fieldSize:6000,parts:51},
+ limits:{fileSize:45*1024*1024,files:3,fields:45,fieldSize:12000,parts:51},
  fileFilter:(_req,file,cb)=>{
    const ext = path.extname(file.originalname).toLowerCase();
    if(file.fieldname === 'track' && ext === '.wav') return cb(null,true);
@@ -104,6 +104,13 @@ async function sendText(message){
  f.set('disable_web_page_preview','true');
  return telegram('sendMessage',f);
 }
+async function sendPlainText(message){
+ const f=new FormData();
+ f.set('chat_id',process.env.TELEGRAM_CHAT_ID);
+ f.set('text',message);
+ f.set('disable_web_page_preview','true');
+ return telegram('sendMessage',f);
+}
 async function sendFile(file,caption){
  const form=new FormData();
  form.set('chat_id',process.env.TELEGRAM_CHAT_ID);
@@ -128,7 +135,8 @@ app.post('/api/submit',limiter,(req,res,next)=>{
      vkArtistUrl=val(body.vkArtistUrl,500),yandexArtistUrl=val(body.yandexArtistUrl,500),
      appleArtistUrl=val(body.appleArtistUrl,500),promoStory=val(body.promoStory,1100),
      promoMeaning=val(body.promoMeaning,1100),promoInspiration=val(body.promoInspiration,900),
-     promoAudience=val(body.promoAudience,900),promoHighlight=val(body.promoHighlight,900);
+     promoAudience=val(body.promoAudience,900),promoHighlight=val(body.promoHighlight,900),
+     pressRelease=typeof body.pressRelease==='string'?body.pressRelease.trim().slice(0,3500):'';
  const files=req.files||{},audio=files.track?.[0],cover=files.cover?.[0],agreement=files.instrumentalAgreement?.[0];
  if(!artist || !trackTitle || !genre || !releaseDate || !legalType || !legalName || !email || !phone || !(audio||cloudLink) || !cover)
     return res.status(400).json({ok:false,error:'Укажи трек, жанр, дату релиза, контактные данные, обложку и WAV или ссылку на него.'});
@@ -165,6 +173,7 @@ app.post('/api/submit',limiter,(req,res,next)=>{
      msg+=line;
    }
    if (msg.trim()) await sendText(msg);
+   if(pressRelease) await sendPlainText('📝 ГОТОВЫЙ ПРЕСС-РЕЛИЗ · ЗАЯВКА #'+id+'\n\n'+pressRelease);
    if(audio) await sendFile(audio,'🎧 '+artist+' — '+trackTitle+' | заявка '+id);
    if(cover) await sendFile(cover,'🖼 Обложка | '+artist+' — '+trackTitle+' | заявка '+id);
    if(agreement) await sendFile(agreement,'📄 Договор / лицензия на инструментал | '+artist+' — '+trackTitle+' | заявка '+id);
