@@ -17,26 +17,202 @@ window.YS = {
     { author: 'Данил', date: '26 января 2025', topic: 'БИТМЕЙКИНГ', text: 'Заказывал бит по референсу. По его оценке, результат превзошёл ожидания.' },
   ],
   services: [
-    { n:'01', symbol:'◉', title:'Запись вокала', type:'PRODUCTION', desc:'Чистая запись, внимание к подаче и помощь в студии. От демо до готового дубля.', price:'Стоимость по запросу' },
-    { n:'02', symbol:'≈', title:'Сведение и мастеринг', type:'SOUND', desc:'Собираем вокал и инструментал в плотный звук, который уверенно работает на площадках.', price:'Стоимость по запросу' },
-    { n:'03', symbol:'⌁', title:'Биты и продакшн', type:'BEAT LAB', desc:'Авторские инструменталы, аранжировки и продюсирование в эстетике твоего проекта.', price:'Стоимость по запросу' },
-    { n:'04', symbol:'↗', title:'Дистрибуция', type:'RELEASE', desc:'Подготовка релиза, метаданные и доставка на музыкальные площадки.', price:'Стоимость по запросу' },
-    { n:'05', symbol:'✳', title:'Продвижение релиза', type:'PROMO', desc:'Разбираем потенциал трека и подбираем понятную стратегию продвижения.', price:'Индивидуальный расчёт' },
-    { n:'06', symbol:'▧', title:'Дизайн обложек', type:'VISUAL', desc:'Визуал, который считывается с маленькой иконки и запоминается.', price:'Уточнить актуальную цену' },
-    { n:'07', symbol:'▶', title:'Нейро-клипы', type:'VIDEO', desc:'Арт-дирекшн и видеоконтент под настроение и эстетику релиза.', price:'Уточнить актуальную цену' },
-    { n:'08', symbol:'✦', title:'Нейро-фотосессии', type:'AI ART', desc:'Новый образ для релиза, соцсетей и промокампании.', price:'Уточнить актуальную цену' },
+    {
+      "n": "01",
+      "symbol": "◉",
+      "title": "Запись вокала",
+      "type": "PRODUCTION",
+      "desc": "Запись в оборудованной студии с помощью звукорежиссёра.",
+      "price": "Цена уточняется"
+    },
+    {
+      "n": "02",
+      "symbol": "≈",
+      "title": "Сведение и мастеринг",
+      "type": "SOUND",
+      "desc": "Чистый вокал, плотный микс, мастер под стриминги.",
+      "price": "Цена уточняется"
+    },
+    {
+      "n": "03",
+      "symbol": "⌁",
+      "title": "Биты и продакшн",
+      "type": "BEAT LAB",
+      "desc": "Инструменталы и аранжировки под идею артиста.",
+      "price": "Цена уточняется"
+    },
+    {
+      "n": "04",
+      "symbol": "↗",
+      "title": "Дистрибуция",
+      "type": "RELEASE",
+      "desc": "Оформим метаданные и подготовим выпуск трека.",
+      "price": "Цена уточняется"
+    },
+    {
+      "n": "05",
+      "symbol": "✳",
+      "title": "1 плейлист",
+      "type": "PROMO",
+      "desc": "Плейлист-продвижение для подходящих треков; результат размещения обсуждается заранее.",
+      "price": "Ранее 1 500 ₽*"
+    },
+    {
+      "n": "06",
+      "symbol": "✳",
+      "title": "5 плейлистов",
+      "type": "PROMO",
+      "desc": "Пакет музыкальных плейлистов по выбранному направлению.",
+      "price": "Ранее 5 000 ₽*"
+    },
+    {
+      "n": "07",
+      "symbol": "▧",
+      "title": "Дизайн обложек",
+      "type": "VISUAL",
+      "desc": "Обложка для релиза с продуманной визуальной концепцией.",
+      "price": "Ранее 6 500 ₽*"
+    },
+    {
+      "n": "08",
+      "symbol": "▶",
+      "title": "Нейро-клип",
+      "type": "VIDEO",
+      "desc": "AI-видеоконтент по сценарию и стилю трека.",
+      "price": "Ранее 15 000 ₽*"
+    },
+    {
+      "n": "09",
+      "symbol": "✦",
+      "title": "Нейро-фотосессия",
+      "type": "AI ART",
+      "desc": "Промоизображения и новый образ артиста.",
+      "price": "Ранее 5 000 ₽*"
+    }
   ],
   cases: [
-    { id:'trissa', type:'ЯНДЕКС МУЗЫКА / МОЯ ВОЛНА', artist:'TRISSA', track:'Мажет', title:'Трек нашёл новую аудиторию', details:'Результат за 90 дней после попадания в «Мою волну» Яндекс Музыки.', a:'86 070', aLabel:'ПРОСЛУШИВАНИЙ', b:'41 777', bLabel:'СЛУШАТЕЛЕЙ', source:'https://t.me/young_sound/455', featured:true },
-    { id:'playlist', type:'РЕДАКТОРСКАЯ ПОДДЕРЖКА', artist:'YOUNG SOUND', track:'Плейлисты', title:'Релизы в редакторских подборках', details:'Наши артисты получали поддержку в редакторских плейлистах Яндекс Музыки. Публикация и подтверждение — в канале.', a:'EDITORIAL', aLabel:'ПОДДЕРЖКА ПЛОЩАДОК', b:'', bLabel:'', source:'https://t.me/young_sound/458', featured:false },
+    {
+      "id": "trissa",
+      "type": "ЯНДЕКС МУЗЫКА · МОЯ ВОЛНА",
+      "artist": "TRISSA",
+      "track": "Мажет",
+      "title": "86 тысяч прослушиваний за 90 дней",
+      "details": "Попадание в «Мою волну» Яндекс Музыки. Статистика подтверждена публикацией Young Sound.",
+      "a": "86 070",
+      "aLabel": "ПРОСЛУШИВАНИЙ",
+      "b": "41 777",
+      "bLabel": "СЛУШАТЕЛЕЙ",
+      "source": "https://t.me/young_sound/455",
+      "featured": true
+    },
+    {
+      "id": "pilana",
+      "type": "РЕЛИЗ · ДИСТРИБУЦИЯ",
+      "artist": "PILANA",
+      "track": "Слёзы-океаны",
+      "title": "PILANA — Слёзы-океаны",
+      "details": "Релиз из официальной подборки Young Sound. Открой страницу, чтобы послушать трек.",
+      "cover": "https://avatars.yandex.net/get-music-content/17649213/291b620f.a.43478456-1/600x600",
+      "a": "РЕЛИЗ",
+      "aLabel": "НА ПЛОЩАДКАХ",
+      "source": "https://band.link/0gU1C"
+    },
+    {
+      "id": "platite",
+      "type": "РЕЛИЗ · ДИСТРИБУЦИЯ",
+      "artist": "платите",
+      "track": "Дропс",
+      "title": "платите — Дропс",
+      "details": "Опубликованный релиз, представленный в подборке Young Sound.",
+      "cover": "https://avatars.yandex.net/get-music-content/17740720/a47106bd.a.43478447-1/600x600",
+      "a": "РЕЛИЗ",
+      "aLabel": "НА ПЛОЩАДКАХ",
+      "source": "https://band.link/Y0yTh"
+    },
+    {
+      "id": "kishulga",
+      "type": "РЕЛИЗ · ДИСТРИБУЦИЯ",
+      "artist": "КИШУЛЬГА",
+      "track": "Твои мысли",
+      "title": "КИШУЛЬГА — Твои мысли",
+      "details": "Релиз из подборки Young Sound с подтверждённой обложкой.",
+      "cover": "https://avatars.yandex.net/get-music-content/20013662/5ece18bf.a.43478449-1/600x600",
+      "a": "РЕЛИЗ",
+      "aLabel": "НА ПЛОЩАДКАХ",
+      "source": "https://band.link/N3yZJ"
+    },
+    {
+      "id": "rockets",
+      "type": "РЕЛИЗ · ДИСТРИБУЦИЯ",
+      "artist": "худак подруги",
+      "track": "Рокэтс",
+      "title": "худак подруги — Рокэтс",
+      "details": "Один из релизов, анонсированных в официальном канале лейбла.",
+      "cover": "https://avatars.yandex.net/get-music-content/20608190/49f31079.a.43478460-1/600x600",
+      "a": "РЕЛИЗ",
+      "aLabel": "НА ПЛОЩАДКАХ",
+      "source": "https://band.link/Q8tAR"
+    },
+    {
+      "id": "party",
+      "type": "РЕЛИЗ · ДИСТРИБУЦИЯ",
+      "artist": "почти человек",
+      "track": "Вечеринка",
+      "title": "почти человек — Вечеринка",
+      "details": "Релиз из каталога Young Sound с действующей страницей прослушивания.",
+      "cover": "https://avatars.yandex.net/get-music-content/20840698/67bd34eb.a.43478453-1/600x600",
+      "a": "РЕЛИЗ",
+      "aLabel": "НА ПЛОЩАДКАХ",
+      "source": "https://band.link/eXbuo"
+    },
+    {
+      "id": "editorial",
+      "type": "ПЛЕЙЛИСТЫ · РЕДАКТОРСКАЯ ПОДДЕРЖКА",
+      "artist": "YOUNG SOUND",
+      "track": "Редакторские плейлисты",
+      "title": "Попадания в редакторские подборки",
+      "details": "Команда сообщала о поддержке релизов редакторскими плейлистами Яндекс Музыки. Подробности — в источнике.",
+      "a": "EDITORIAL",
+      "aLabel": "ПОДДЕРЖКА ПЛОЩАДКИ",
+      "source": "https://t.me/young_sound/458"
+    }
   ],
   releases: [
-    { artist:'PILANA', track:'Слёзы-океаны', initials:'PL', url:'https://t.me/young_sound' },
-    { artist:'платите', track:'Дропс', initials:'ПЛ', url:'https://t.me/young_sound' },
-    { artist:'КИШУЛЬГА', track:'Твои мысли', initials:'КШ', url:'https://t.me/young_sound' },
-    { artist:'PILANA', track:'Мысли и слова', initials:'PL', url:'https://t.me/young_sound' },
-    { artist:'платите', track:'Такси', initials:'ПЛ', url:'https://t.me/young_sound' },
-    { artist:'Buddy Hulk', track:'Карие глаза', initials:'BH', url:'https://t.me/young_sound' },
+    {
+      "artist": "PILANA",
+      "track": "Слёзы-океаны",
+      "initials": "PI",
+      "url": "https://band.link/0gU1C",
+      "cover": "https://avatars.yandex.net/get-music-content/17649213/291b620f.a.43478456-1/600x600"
+    },
+    {
+      "artist": "платите",
+      "track": "Дропс",
+      "initials": "ПЛ",
+      "url": "https://band.link/Y0yTh",
+      "cover": "https://avatars.yandex.net/get-music-content/17740720/a47106bd.a.43478447-1/600x600"
+    },
+    {
+      "artist": "КИШУЛЬГА",
+      "track": "Твои мысли",
+      "initials": "КИ",
+      "url": "https://band.link/N3yZJ",
+      "cover": "https://avatars.yandex.net/get-music-content/20013662/5ece18bf.a.43478449-1/600x600"
+    },
+    {
+      "artist": "худак подруги",
+      "track": "Рокэтс",
+      "initials": "ХУ",
+      "url": "https://band.link/Q8tAR",
+      "cover": "https://avatars.yandex.net/get-music-content/20608190/49f31079.a.43478460-1/600x600"
+    },
+    {
+      "artist": "почти человек",
+      "track": "Вечеринка",
+      "initials": "ПО",
+      "url": "https://band.link/eXbuo",
+      "cover": "https://avatars.yandex.net/get-music-content/20840698/67bd34eb.a.43478453-1/600x600"
+    }
   ],
   packages: [
     { n:'01', title:'START', subtitle:'Сделать музыку', featured:false, price:'ПО ЗАПРОСУ', caption:'Для артиста, который начинает с идеи', items:[['Подбор направления / разбор референсов',true],['Музыкальный продакшн',true],['Работа над звучанием',true],['Дистрибуция',false],['Продвижение',false]] },
