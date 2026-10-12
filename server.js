@@ -126,7 +126,7 @@ app.post('/api/submit',limiter,(req,res,next)=>{
  if(body.website) return res.status(400).json({ok:false,error:'Не удалось отправить форму.'});
  const artist=val(body.artist,120),trackTitle=val(body.trackTitle,180),
      telegramContact=val(body.telegram,120),email=val(body.email,140),phone=val(body.phone,35),
-     legalName=val(body.legalName,250),legalType=val(body.legalType,80),
+     legalName=val(body.legalName,250),
      releaseType=val(body.releaseType,50),genre=val(body.genre,100),
      artists=val(body.featured,250),authors=val(body.authors,300),composer=val(body.composer,300),
      explicit=val(body.explicit,30),releaseDate=val(body.releaseDate,30),language=val(body.language,100),isrc=val(body.isrc,40),notes=val(body.notes,1100),
@@ -138,7 +138,7 @@ app.post('/api/submit',limiter,(req,res,next)=>{
      promoAudience=val(body.promoAudience,900),promoHighlight=val(body.promoHighlight,900),
      pressRelease=typeof body.pressRelease==='string'?body.pressRelease.trim().slice(0,3500):'';
  const files=req.files||{},audio=files.track?.[0],cover=files.cover?.[0],agreement=files.instrumentalAgreement?.[0];
- if(!artist || !trackTitle || !genre || !releaseDate || !legalType || !legalName || !email || !phone || !(audio||cloudLink) || !cover)
+ if(!artist || !trackTitle || !genre || !releaseDate || !legalName || !email || !phone || !(audio||cloudLink) || !cover)
     return res.status(400).json({ok:false,error:'Укажи трек, жанр, дату релиза, контактные данные, обложку и WAV или ссылку на него.'});
  if(copyright!=='yes'||consent!=='yes') return res.status(400).json({ok:false,error:'Для отправки нужно подтвердить права на материал и согласие на обработку заявки.'});
  if(cloudLink && !/^https?:\/\/\S+/i.test(cloudLink)) return res.status(400).json({ok:false,error:'Ссылка на файл должна начинаться с https://'});
@@ -156,7 +156,7 @@ app.post('/api/submit',limiter,(req,res,next)=>{
  ['Ссылка Apple Music',appleArtistUrl],['Текст песни',lyrics],
  ['Как писался трек',promoStory],['О чём песня',promoMeaning],
  ['Вдохновение',promoInspiration],['Для какой аудитории',promoAudience],
- ['Акцент в промо',promoHighlight],['Тип заявителя',legalType],
+ ['Акцент в промо',promoHighlight],
  ['ФИО / организация',legalName],['Телефон',phone],['Email',email],['Telegram',telegramContact],
  ['Ссылка на WAV в облаке',cloudLink],['Комментарии',notes],
  ['Аудио',audio?audio.originalname+' ('+(audio.size/1048576).toFixed(1)+' МБ)':'по ссылке'],
