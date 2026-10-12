@@ -81,8 +81,10 @@ window.YS = {
       "aLabel": "ПРОСЛУШИВАНИЯ",
       "b": "160 339",
       "bLabel": "СЛУШАТЕЛЕЙ",
-      "source": "https://music.mts.ru/artist/22775281/albums/41506375/150090692",
-      "sourceLabel": "Слушать трек",
+      "source": "https://music.yandex.ru/artist/19535161",
+      "sourceLabel": "Трэй на Яндекс Музыке",
+      "listenUrl": "https://music.yandex.ru/artist/19535161",
+      "listenLabel": "Эйфория — на Яндекс Музыке",
       "featured": true,
       "proof": "Скриншот статистики предоставлен Young Sound"
     },
@@ -97,8 +99,10 @@ window.YS = {
       "aLabel": "ПРОСЛУШИВАНИЯ",
       "b": "21 785",
       "bLabel": "СЛУШАТЕЛЕЙ",
-      "source": "https://music.apple.com/us/album/%D0%BA%D0%B0%D0%B6%D0%B4%D0%BE%D0%BC%D1%83-%D1%81%D0%B2%D0%BE%D1%91/1890459041?i=1890459342",
-      "sourceLabel": "Слушать трек",
+      "source": "https://music.yandex.ru/album/41465880",
+      "sourceLabel": "Открыть альбом в Яндекс Музыке",
+      "listenUrl": "https://music.yandex.ru/album/41465880",
+      "listenLabel": "Слушать на Яндекс Музыке",
       "proof": "Скриншот статистики предоставлен Young Sound"
     },
     {
@@ -113,7 +117,9 @@ window.YS = {
       "b": "41 777",
       "bLabel": "СЛУШАТЕЛЕЙ",
       "source": "https://t.me/young_sound/455",
-      "sourceLabel": "Кейс в Telegram"
+      "sourceLabel": "Посмотреть кейс в Telegram",
+      "listenUrl": "https://music.yandex.ru/search?text=TRISSA%20%D0%9C%D0%B0%D0%B6%D0%B5%D1%82",
+      "listenLabel": "Найти «Мажет» в Яндекс Музыке"
     }
   ],
     releases:   [],
