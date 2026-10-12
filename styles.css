@@ -476,3 +476,68 @@ em{color:var(--acid);font-style:normal}.live-dot,.status-orbit{display:inline-bl
   outline:2px solid var(--acid);outline-offset:3px
 }
 @media(max-width:670px){.upload-panel .instrumental-agreement .upload-file-visual{min-height:95px}}
+
+
+/* Real Young Sound recording studio: photo, Yandex Maps 5-star rating and location */
+.ys-studio-showcase{padding-top:clamp(72px,6.5vw,120px);padding-bottom:clamp(80px,6vw,125px)}
+.ys-studio-layout{display:grid;grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);gap:clamp(22px,3.3vw,56px);align-items:stretch;margin-top:30px}
+.ys-studio-photo{margin:0;min-width:0;position:relative;overflow:hidden;min-height:780px;border:1px solid #5b6a56;background:#170d29;isolation:isolate;box-shadow:0 32px 85px #0008}
+.ys-studio-photo:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,#040805cc);pointer-events:none}
+.ys-studio-photo img{width:100%;height:100%;position:absolute;inset:0;display:block;object-fit:cover;object-position:center 49%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1);filter:saturate(.93) contrast(1.02)}
+.ys-studio-photo:hover img{transform:scale(1.045)}
+.ys-studio-photo figcaption{position:absolute;bottom:0;left:0;right:0;z-index:1;padding:25px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:#f6f6f6;font:800 10px/1.5 var(--body);letter-spacing:.14em}
+.ys-studio-photo figcaption span:last-child{color:var(--acid)}
+.ys-studio-description{min-width:0;display:flex;flex-direction:column;align-items:stretch;justify-content:center}
+.ys-studio-eyebrow{font:800 10px/1.5 var(--body);letter-spacing:.18em;color:var(--acid);text-transform:uppercase}
+.ys-studio-description h2{font:900 clamp(32px,3.6vw,62px)/1.07 var(--display);letter-spacing:-.078em;margin:15px 0 18px;overflow-wrap:anywhere}
+.ys-studio-description>p{max-width:620px;margin:0 0 26px;font:500 clamp(13px,1vw,15px)/1.85 var(--body);color:#c4d0c5}
+.ys-studio-rating{border:1px solid #a7e45f7d;background:radial-gradient(circle at 95% 20%,#baff5c1a,transparent 52%),#1b281b;display:flex;align-items:center;gap:22px;padding:22px 25px;position:relative;overflow:hidden;transition:border-color .2s,background .2s,transform .2s}
+.ys-studio-rating:hover{background:#2a3c21;border-color:var(--acid);transform:translateY(-2px)}
+.ys-studio-rating-mark{background:#ffdc30;color:#11170d;display:grid;place-items:center;width:55px;height:55px;flex:0 0 55px;border-radius:14px;font:900 31px/1 var(--display);letter-spacing:-.07em}
+.ys-studio-rating-data{display:grid;gap:7px;min-width:0}
+.ys-studio-rating-data b{display:flex;align-items:center;gap:20px;color:#f2faef;font:900 clamp(32px,3vw,47px)/1 var(--display);letter-spacing:-.085em}
+.ys-studio-rating-data i{font:900 clamp(16px,1.75vw,27px)/1 var(--body);letter-spacing:.06em;font-style:normal;color:#ffd74f}
+.ys-studio-rating-data small{font:800 10px/1.6 var(--body);letter-spacing:.1em;color:#abcaa0}
+.ys-studio-rating-data small span{color:var(--acid)}
+.ys-studio-address{display:grid;gap:7px;margin:26px 0 0}
+.ys-studio-address span{font:800 10px/1.5 var(--body);color:#97ad97;letter-spacing:.14em}
+.ys-studio-address strong{font:800 clamp(14px,1.1vw,17px)/1.5 var(--body);color:#edf9eb}
+.ys-studio-buttons{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0}
+.ys-studio-map{border:1px solid #3d523e;overflow:hidden;background:#152119;position:relative}
+.ys-studio-map-top{padding:13px 18px;display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #465b46;background:#18271a;color:#c1e5b9;font:800 10px/1.5 var(--body);letter-spacing:.07em}
+.ys-studio-map iframe{display:block;border:0;width:100%;height:230px;background:#e7eee5}
+.ys-studio-map>a{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#233326;color:var(--acid);padding:15px 18px;font:800 10px/1.5 var(--body);letter-spacing:.08em;transition:background .2s}
+.ys-studio-map>a:hover{background:#314c29}
+.ys-studio-map>a span{font:22px/1 Arial}
+@media(max-width:1180px){
+.ys-studio-layout{grid-template-columns:1fr 1fr;gap:25px}
+.ys-studio-photo{min-height:760px}
+.ys-studio-description h2{font-size:clamp(30px,3.8vw,48px)}
+.ys-studio-rating{padding:18px}
+.ys-studio-rating-data b{font-size:clamp(31px,3.5vw,43px)}
+}
+@media(max-width:970px){
+.ys-studio-layout{grid-template-columns:1fr}
+.ys-studio-photo{height:520px;min-height:0}
+.ys-studio-photo img{object-position:center 54%}
+.ys-studio-description{padding:4px 0 0}
+.ys-studio-description h2{font-size:clamp(36px,6vw,59px)}
+.ys-studio-map iframe{height:300px}
+}
+@media(max-width:600px){
+.ys-studio-showcase{padding-top:70px}
+.ys-studio-layout{margin-top:22px;gap:24px}
+.ys-studio-photo{height:450px}
+.ys-studio-photo figcaption{padding:18px;font-size:9px}
+.ys-studio-description h2{font-size:clamp(31px,9vw,48px)}
+.ys-studio-rating{gap:11px;padding:15px}
+.ys-studio-rating-mark{width:45px;height:45px;flex-basis:45px;border-radius:10px;font-size:23px}
+.ys-studio-rating-data b{font-size:31px;gap:11px}
+.ys-studio-rating-data i{font-size:15px;letter-spacing:0}
+.ys-studio-rating-data small{font-size:9px}
+.ys-studio-buttons{flex-direction:column}
+.ys-studio-buttons .ys-btn{width:100%}
+.ys-studio-map-top{font-size:9px}
+.ys-studio-map iframe{height:265px}
+}
+@media(prefers-reduced-motion:reduce){.ys-studio-photo img{transition:none}}
