@@ -74,14 +74,15 @@ const limiter = rateLimit({windowMs:60*60*1000,limit:5,standardHeaders:'draft-7'
   message:{ok:false,error:'Слишком много отправок. Подождите час или напишите менеджеру в Telegram.'}});
 const upload = multer({
  storage:multer.memoryStorage(),
- limits:{fileSize:45*1024*1024,files:2,fields:45,fieldSize:6000,parts:50},
+ limits:{fileSize:45*1024*1024,files:3,fields:45,fieldSize:6000,parts:51},
  fileFilter:(_req,file,cb)=>{
    const ext = path.extname(file.originalname).toLowerCase();
    if(file.fieldname === 'track' && ext === '.wav') return cb(null,true);
    if(file.fieldname === 'cover' && ['.jpg','.jpeg','.png','.webp'].includes(ext)) return cb(null,true);
-   cb(new Error('Недопустимый формат файла. Трек: только WAV, обложка: JPG/PNG/WEBP.'));
+   if(file.fieldname === 'instrumentalAgreement' && ['.pdf','.doc','.docx','.jpg','.jpeg','.png','.webp'].includes(ext)) return cb(null,true);
+   cb(new Error('Недопустимый формат файла. Трек: WAV, обложка: JPG/PNG/WEBP, договор: PDF/DOC/DOCX/JPG/PNG/WEBP.'));
  }
-}).fields([{name:'track',maxCount:1},{name:'cover',maxCount:1}]);
+}).fields([{name:'track',maxCount:1},{name:'cover',maxCount:1},{name:'instrumentalAgreement',maxCount:1}]);
 function val(input,max=300) {return typeof input==='string' ? input.replace(/[\u0000-\u001f]/g,' ').trim().slice(0,max) : '';}
 function html(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 async function telegram(method,payload){
@@ -121,28 +122,28 @@ app.post('/api/submit',limiter,(req,res,next)=>{
      legalName=val(body.legalName,250),legalType=val(body.legalType,80),
      releaseType=val(body.releaseType,50),genre=val(body.genre,100),
      artists=val(body.featured,250),authors=val(body.authors,300),composer=val(body.composer,300),
-     explicit=val(body.explicit,30),releaseDate=val(body.releaseDate,30),owner=val(body.owner,250),
-     language=val(body.language,100),isrc=val(body.isrc,40),notes=val(body.notes,1100),
+     explicit=val(body.explicit,30),releaseDate=val(body.releaseDate,30),language=val(body.language,100),isrc=val(body.isrc,40),notes=val(body.notes,1100),
      cloudLink=val(body.cloudLink,500),copyright=val(body.copyright,20),consent=val(body.consent,20),
      tiktokTime=val(body.tiktokTime,60),lyrics=val(body.lyrics,2800),
      vkArtistUrl=val(body.vkArtistUrl,500),yandexArtistUrl=val(body.yandexArtistUrl,500),
      appleArtistUrl=val(body.appleArtistUrl,500),promoStory=val(body.promoStory,1100),
      promoMeaning=val(body.promoMeaning,1100),promoInspiration=val(body.promoInspiration,900),
      promoAudience=val(body.promoAudience,900),promoHighlight=val(body.promoHighlight,900);
- const files=req.files||{},audio=files.track?.[0],cover=files.cover?.[0];
+ const files=req.files||{},audio=files.track?.[0],cover=files.cover?.[0],agreement=files.instrumentalAgreement?.[0];
  if(!artist || !trackTitle || !genre || !releaseDate || !legalType || !legalName || !email || !phone || !(audio||cloudLink) || !cover)
     return res.status(400).json({ok:false,error:'Укажи трек, жанр, дату релиза, контактные данные, обложку и WAV или ссылку на него.'});
  if(copyright!=='yes'||consent!=='yes') return res.status(400).json({ok:false,error:'Для отправки нужно подтвердить права на материал и согласие на обработку заявки.'});
  if(cloudLink && !/^https?:\/\/\S+/i.test(cloudLink)) return res.status(400).json({ok:false,error:'Ссылка на файл должна начинаться с https://'});
  if(audio && path.extname(audio.originalname).toLowerCase()!=='.wav') return res.status(400).json({ok:false,error:'Для дистрибуции нужен WAV-файл.'});
  if(cover && cover.size>10*1024*1024) return res.status(400).json({ok:false,error:'Обложка должна быть меньше 10 МБ.'});
+ if(agreement && agreement.size>10*1024*1024) return res.status(400).json({ok:false,error:'Договор на инструментал должен быть меньше 10 МБ.'});
  if(audio && audio.size>45*1024*1024) return res.status(400).json({ok:false,error:'Аудиофайл должен быть меньше 45 МБ. Для большого WAV вставь ссылку на облако.'});
  const id=crypto.randomBytes(4).toString('hex').toUpperCase();
  const rows=[
  ['Номер',id],['Исполнитель',artist],['Название песни',trackTitle],['Формат',releaseType],
  ['Жанр',genre],['Дата релиза',releaseDate],['Участники / feat.',artists],
  ['Язык',language],['Автор текста',authors],['Автор музыки',composer],
- ['Ненормативная лексика',explicit],['Правообладатель',owner],['ISRC',isrc],
+ ['Ненормативная лексика',explicit],['ISRC',isrc],
  ['Тайминг TikTok',tiktokTime],['Ссылка VK',vkArtistUrl],['Ссылка Яндекс Музыка',yandexArtistUrl],
  ['Ссылка Apple Music',appleArtistUrl],['Текст песни',lyrics],
  ['Как писался трек',promoStory],['О чём песня',promoMeaning],
@@ -151,7 +152,7 @@ app.post('/api/submit',limiter,(req,res,next)=>{
  ['ФИО / организация',legalName],['Телефон',phone],['Email',email],['Telegram',telegramContact],
  ['Ссылка на WAV в облаке',cloudLink],['Комментарии',notes],
  ['Аудио',audio?audio.originalname+' ('+(audio.size/1048576).toFixed(1)+' МБ)':'по ссылке'],
- ['Обложка',cover.originalname]];
+ ['Обложка',cover.originalname],['Договор на инструментал',agreement?agreement.originalname:'не приложен (собственный инструментал или договор пока не предоставлен)']];
  try {
    let msg='<b>🎵 YOUNG SOUND — НОВАЯ ЗАЯВКА #'+id+'</b>\n\n';
    for (const [k,v] of rows) {
@@ -166,6 +167,7 @@ app.post('/api/submit',limiter,(req,res,next)=>{
    if (msg.trim()) await sendText(msg);
    if(audio) await sendFile(audio,'🎧 '+artist+' — '+trackTitle+' | заявка '+id);
    if(cover) await sendFile(cover,'🖼 Обложка | '+artist+' — '+trackTitle+' | заявка '+id);
+   if(agreement) await sendFile(agreement,'📄 Договор / лицензия на инструментал | '+artist+' — '+trackTitle+' | заявка '+id);
    return res.json({ok:true,id,message:'Заявка и файлы отправлены в Telegram Young Sound.'});
  }catch(e){
    console.error('Telegram delivery error',id,e.message);
