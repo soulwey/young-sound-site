@@ -32,9 +32,7 @@
   const reviews =()=> `<section class="wrap block reviews-section" id="reviews">${eyebrow('03 / ОТЗЫВЫ','REAL PEOPLE / REAL SOUND')}${title('СЛОВО<br><em>НАШИМ АРТИСТАМ.</em>','Впечатления людей, которые уже были у нас. Краткие пересказы отзывов с Яндекс Карт — с именами и ссылкой на оригинал.')}<div class="reviews-grid">${d.reviews.map((r,i)=>`<article class="review-card reveal"><div class="review-heading"><span>★★★★★</span><small>REVIEW // 0${i+1}</small></div><div class="review-topic">${r.topic}</div><p>${r.text}</p><div class="review-bottom"><div><strong>${r.author}</strong><span>${r.date}</span></div>${a(d.links.reviews,'Читать в Яндекс Картах ↗')}</div></article>`).join('')}</div><div class="reviews-more">${a(d.links.reviews,'ВСЕ ОТЗЫВЫ НА ЯНДЕКС КАРТАХ ↗','underlined')}</div></section>`;
 
   const playlistGroups=[
-    {title:'ПОП / ТАНЦЫ / ХИТЫ',items:['Останови вечеринку','Поп новинки 2026','Танцы до утра','Будущие хиты','Живой звук']},
-    {title:'РОК / ЭЛЕКТРОНИКА / НОВИНКИ',items:['Рокстар','Нитро новинки','В ритме','Вибро','Лучшее 2026']},
-    {title:'ЛЕТНИЕ / ЖАНРОВЫЕ ПОДБОРКИ',items:['Заряд радости','Летний вайб','Яркие новинки','Новый шансон 2026','Трэп на блоке']}
+    {title:'ПОП / ТАНЦЫ / ХИТЫ',items:['Останови вечеринку','Поп новинки 2026','Танцы до утра','Будущие хиты','Живой звук']}
   ];
   const playlistPromo=()=>{
     const strips=playlistGroups.map((g,j)=>`<div class="ys-promo-collection reveal">
