@@ -80,63 +80,101 @@
         </form>
       </div>
     </section></main>`;
-  const privacy=()=>`<main>${pageHero('06','ПРАВОВАЯ ИНФОРМАЦИЯ','ПРИВАТНОСТЬ <em>ВАЖНА.</em>','Как работает форма связи на сайте Young Sound.')}<section class="wrap legal-text"><h2>Обработка данных при обращении</h2><p>Формы «Связаться» и «Отправить демо» подготавливают сообщение в браузере для самостоятельной отправки в Telegram, не загружая файлы на сервер. Форма «Отгрузить трек» при отправке передаёт указанные контактные данные, сведения о релизе и прикреплённые файлы на сервер приёма Young Sound в Render.</p><p>После настройки сервиса файлы и данные направляются в Telegram менеджеру через бота. На нашем сервере файлы хранятся только временно в оперативной памяти для доставки и не помещаются в постоянную базу данных. В Telegram переданные файлы хранятся в соответствии с политикой платформы. Не загружайте материалы, на которые не имеете прав.</p><p>После нажатия «Подготовить сообщение» текст копируется в буфер обмена, а браузер открывает Telegram по ссылке менеджера. Отправка сообщения происходит только если вы самостоятельно вставите его в чат и нажмёте кнопку отправки.</p><p>Переходя на Telegram, VK или Яндекс Карты, вы пользуетесь внешними сервисами на условиях их собственных документов о конфиденциальности.</p><p>Эта информационная страница описывает обработку обращений и загрузок релизов. Данные используются для рассмотрения и ответа на заявку. Для запроса удаления или уточнения данных обратитесь к менеджеру. Для связи: <a href="${d.links.manager}" target="_blank" rel="noopener noreferrer">@soulweyyy</a>.</p></section></main>`;
-  const submit=()=>`<main>${pageHero('06','ОТПРАВИТЬ РЕЛИЗ','ОТГРУЗИ <em>СВОЙ ТРЕК.</em>','Заполни метаданные, прикрепи аудиофайл и обложку. Заявка с файлами поступит в Young Sound после подключения уведомлений.') }
+  const privacy=()=>`<main>${pageHero('06','ПРАВОВАЯ ИНФОРМАЦИЯ','ПРИВАТНОСТЬ <em>ВАЖНА.</em>','Как работает форма связи на сайте Young Sound.')}<section class="wrap legal-text"><h2>Обработка данных при обращении</h2><p>Формы «Связаться» и «Отправить демо» подготавливают сообщение в браузере для самостоятельной отправки в Telegram, не загружая файлы на сервер. Форма «Отгрузить трек» при отправке передаёт сведения о релизе, контактные данные, историю песни и прикреплённые файлы на сервер Young Sound для рассмотрения заявки.</p><p>После настройки сервиса файлы и данные направляются в Telegram менеджеру через бота. На нашем сервере файлы хранятся только временно в оперативной памяти для доставки и не помещаются в постоянную базу данных. В Telegram переданные файлы хранятся в соответствии с политикой платформы. Паспортные сведения, адрес регистрации, ИНН и банковские реквизиты не запрашиваются и не отправляются через этот сайт. При согласовании релиза их необходимо передавать через отдельный защищённый канал. Не загружайте материалы, на которые не имеете прав.</p><p>После нажатия «Подготовить сообщение» текст копируется в буфер обмена, а браузер открывает Telegram по ссылке менеджера. Отправка сообщения происходит только если вы самостоятельно вставите его в чат и нажмёте кнопку отправки.</p><p>Переходя на Telegram, VK или Яндекс Карты, вы пользуетесь внешними сервисами на условиях их собственных документов о конфиденциальности.</p><p>Эта информационная страница описывает обработку обращений и загрузок релизов. Данные используются для рассмотрения и ответа на заявку. Для запроса удаления или уточнения данных обратитесь к менеджеру. Для связи: <a href="${d.links.manager}" target="_blank" rel="noopener noreferrer">@soulweyyy</a>.</p></section></main>`;
+
+  const submit=()=>`<main>${pageHero('06','ОТГРУЗИТЬ ТРЕК','ГОТОВ К <em>РЕЛИЗУ?</em>','Подготовим твой трек к дистрибуции. Заполни карточку релиза, прикрепи WAV и обложку, а также расскажи историю своей песни.')}
 <section class="wrap block upload-layout">
   <aside class="upload-aside reveal">
-    ${eyebrow('01 / РЕЛИЗ','RELEASE DELIVERY')}
-    <h2>ИЗ ТВОЕГО<br><em>ПЛЕЕРА —</em><br>К НАМ.</h2>
-    <p>Заполни сведения о будущем релизе. Мы проверим информацию, свяжемся с тобой и расскажем о следующих шагах.</p>
-    <div class="upload-steps"><div><b>01</b><span>ДАННЫЕ ОБ АРТИСТЕ</span></div><div><b>02</b><span>МЕТАДАННЫЕ ТРЕКА</span></div><div><b>03</b><span>АУДИО И ОБЛОЖКА</span></div><div><b>04</b><span>ПРОВЕРКА И ОТПРАВКА</span></div></div>
-    <p class="upload-fine">Для больших WAV / альбомов используй ссылку на облако. Отправка не означает автоматическую публикацию релиза.</p>
+    ${eyebrow('RELEASE DELIVERY','YOUNG SOUND')}
+    <h2>ТВОЙ ТРЕК.<br><em>ТВОЯ ИСТОРИЯ.</em></h2>
+    <p>Одна анкета для музыки, метаданных, ссылок на артистов и промо о релизе. Это заявка на рассмотрение; дата публикации подтверждается отдельно.</p>
+    <div class="upload-steps">
+      <div><b>01</b><span>ИНФОРМАЦИЯ О ТРЕКЕ</span></div>
+      <div><b>02</b><span>КАРТОЧКИ АРТИСТА</span></div>
+      <div><b>03</b><span>WAV И ОБЛОЖКА</span></div>
+      <div><b>04</b><span>ИСТОРИЯ ДЛЯ ПРОМО</span></div>
+      <div><b>05</b><span>О ТЕБЕ И ДОКУМЕНТАХ</span></div>
+    </div>
+    <p class="upload-fine">Для больших WAV используй ссылку на облако. Данные паспорта, адрес регистрации и банковские реквизиты запросим отдельно по защищённому каналу перед оформлением договора.</p>
   </aside>
   <div class="upload-panel reveal">
-  <div class="panel-top"><span>RELEASE FORM / YOUNG SOUND</span><span>✳</span></div>
-  <div id="delivery-status" class="delivery-status" role="status">Проверяем готовность сервиса приёма файлов…</div>
-  <form id="release-form" enctype="multipart/form-data">
-    <div class="form-stage"><span>01</span> АРТИСТ И КОНТАКТЫ</div>
-    <div class="form-two">
-      <label>ИСПОЛНИТЕЛЬ / ПСЕВДОНИМ *<input name="artist" required maxlength="120" placeholder="Как писать на площадках"></label>
-      <label>НАЗВАНИЕ РЕЛИЗА / ТРЕКА *<input name="trackTitle" required maxlength="180" placeholder="Название песни"></label>
-      <label>ТВОЙ TELEGRAM<input name="telegram" maxlength="120" placeholder="@username"></label>
-      <label>EMAIL<input name="email" type="email" maxlength="140" placeholder="artist@example.com"></label>
-    </div>
-    <p class="upload-fine">Укажи хотя бы один контакт: Telegram или email.</p>
-    <div class="form-stage"><span>02</span> ДАННЫЕ О РЕЛИЗЕ</div>
-    <div class="form-two">
-      <label>ФОРМАТ<select name="releaseType"><option>Сингл</option><option>EP</option><option>Альбом</option><option>Демо</option></select></label>
-      <label>ЖАНР<input name="genre" maxlength="100" placeholder="Рэп, рок, DnB…"></label>
-      <label>ПРИГЛАШЁННЫЕ АРТИСТЫ<input name="featured" maxlength="250" placeholder="feat. (если есть)"></label>
-      <label>ЯЗЫК ТРЕКА<input name="language" maxlength="100" value="Русский"></label>
-      <label>АВТОР ТЕКСТА<input name="authors" maxlength="300" placeholder="ФИО / псевдоним"></label>
-      <label>АВТОР МУЗЫКИ<input name="composer" maxlength="300" placeholder="ФИО / псевдоним"></label>
-      <label>ЖЕЛАЕМАЯ ДАТА РЕЛИЗА<input name="releaseDate" type="date"></label>
-      <label>НЕНОРМАТИВНАЯ ЛЕКСИКА?<select name="explicit"><option value="Нет">Нет</option><option value="Да">Да</option></select></label>
-      <label>ПРАВООБЛАДАТЕЛЬ<input name="owner" maxlength="250" placeholder="Имя / компания"></label>
-      <label>ISRC (ЕСЛИ ЕСТЬ)<input name="isrc" maxlength="40" placeholder="Необязательно"></label>
-    </div>
-    <div class="form-stage"><span>03</span> ЗАГРУЗКА МАТЕРИАЛОВ</div>
-    <div class="form-two">
-      <label class="upload-file">АУДИОТРЕК
-        <input id="track-file" name="track" type="file" accept=".wav,.mp3,.flac,.aif,.aiff,.m4a,.ogg,audio/*">
-        <span class="upload-file-visual"><b>↥</b><span>ВЫБРАТЬ АУДИО<small id="track-filename">WAV / MP3 / FLAC / AIFF — до 45 МБ</small></span></span>
-      </label>
-      <label class="upload-file">ОБЛОЖКА
-        <input id="cover-file" name="cover" type="file" accept=".jpg,.jpeg,.png,.webp,image/*">
-        <span class="upload-file-visual"><b>▧</b><span>ВЫБРАТЬ ОБЛОЖКУ<small id="cover-filename">JPG / PNG / WEBP — до 10 МБ</small></span></span>
-      </label>
-    </div>
-    <label>ССЫЛКА НА ОБЛАКО (ДЛЯ WAV БОЛЬШЕ 45 МБ ИЛИ АЛЬБОМА)<input name="cloudLink" type="url" maxlength="500" placeholder="https://disk.yandex.ru/..."></label>
-    <label>КОММЕНТАРИЙ ДЛЯ ЛЕЙБЛА<textarea name="notes" rows="4" maxlength="1700" placeholder="Дополнительные сведения, ссылки на референсы, сроки, вопросы…"></textarea></label>
-    <div class="form-stage"><span>04</span> ПОДТВЕРЖДЕНИЕ</div>
-    <label class="upload-check"><input name="copyright" type="checkbox" value="yes" required> <span>Подтверждаю, что у меня есть права или разрешения на предоставленные материалы.</span></label>
-    <label class="upload-check"><input name="consent" type="checkbox" value="yes" required> <span>Согласен на обработку данных для рассмотрения заявки и передачу материалов в Telegram менеджеру. <a href="privacy.html">Условия конфиденциальности</a>.</span></label>
-    <label class="upload-honey" aria-hidden="true">Не заполнять<input name="website" autocomplete="off" tabindex="-1"></label>
-    <button type="submit" class="ys-btn button-primary upload-submit" id="release-submit">ОТПРАВИТЬ ТРЕК В YOUNG SOUND ↗</button>
-    <div id="release-feedback" role="status" aria-live="polite" class="release-feedback"></div>
-    <p class="upload-fine">Никаких фиктивных уведомлений: успех появится только после подтверждения сервером получения файлов. Если сервис ещё не подключён — ${a(d.links.manager,'напиши менеджеру напрямую')}.</p>
-  </form></div>
+    <div class="panel-top"><span>ОТГРУЗКА ТРЕКА / YOUNG SOUND</span><span>✳</span></div>
+    <div id="delivery-status" class="delivery-status" role="status">Проверяем подключение сервиса приёма заявок…</div>
+    <form id="release-form" enctype="multipart/form-data">
+      <div class="form-stage"><span>01</span> О ТРЕКЕ</div>
+      <div class="form-two">
+        <label>ПСЕВДОНИМ ИСПОЛНИТЕЛЯ *<input name="artist" required maxlength="120" placeholder="Точно как на площадках"></label>
+        <label>НАЗВАНИЕ ПЕСНИ *<input name="trackTitle" required maxlength="180" placeholder="Название релиза"></label>
+        <label>ФОРМАТ<select name="releaseType"><option>Сингл</option><option>EP</option><option>Альбом</option></select></label>
+        <label>ЖАНР *<input name="genre" required maxlength="100" placeholder="Хип-хоп, рок, поп, DnB…"></label>
+        <label>ЖЕЛАЕМАЯ ДАТА ВЫХОДА *<input name="releaseDate" type="date" required></label>
+        <label>ЯЗЫК ПЕСНИ<input name="language" maxlength="100" value="Русский"></label>
+        <label>УЧАСТНИКИ / FEAT.<input name="featured" maxlength="250" placeholder="При наличии"></label>
+        <label>НЕНОРМАТИВНАЯ ЛЕКСИКА?<select name="explicit"><option>Нет</option><option>Да</option></select></label>
+        <label>АВТОР ТЕКСТА<input name="authors" maxlength="300" placeholder="ФИО или псевдоним"></label>
+        <label>КОМПОЗИТОР / БИТМЕЙКЕР<input name="composer" maxlength="300" placeholder="ФИО или псевдоним"></label>
+        <label>ПРАВООБЛАДАТЕЛЬ<input name="owner" maxlength="250" placeholder="ФИО, ИП или организация"></label>
+        <label>ISRC (ЕСЛИ ЕСТЬ)<input name="isrc" maxlength="40" placeholder="Необязательно"></label>
+      </div>
+      <div class="form-stage"><span>02</span> КАРТОЧКИ МУЗЫКАНТА И ОТРЫВОК</div>
+      <p class="upload-fine">Если у тебя уже есть страницы артиста, оставь ссылки — так мы не создадим дубли профилей на площадках.</p>
+      <div class="form-two">
+        <label>VK МУЗЫКА<input name="vkArtistUrl" type="url" maxlength="500" placeholder="https://vk.com/..."></label>
+        <label>ЯНДЕКС МУЗЫКА<input name="yandexArtistUrl" type="url" maxlength="500" placeholder="https://music.yandex.ru/artist/..."></label>
+        <label>APPLE MUSIC<input name="appleArtistUrl" type="url" maxlength="500" placeholder="https://music.apple.com/..."></label>
+        <label>ТАЙМИНГ ОТРЫВКА ДЛЯ TIKTOK<input name="tiktokTime" maxlength="60" placeholder="Например: 00:43–01:13"></label>
+      </div>
+      <label>ТЕКСТ ПЕСНИ (ПО ЖЕЛАНИЮ)<textarea name="lyrics" rows="5" maxlength="5000" placeholder="Вставь текст или оставь поле пустым"></textarea></label>
+      <div class="form-stage"><span>03</span> АУДИО И ОБЛОЖКА</div>
+      <div class="form-two">
+        <label class="upload-file">АУДИО В ФОРМАТЕ WAV *
+          <input id="track-file" name="track" type="file" accept=".wav,audio/wav,audio/x-wav">
+          <span class="upload-file-visual"><b>↥</b><span>ВЫБРАТЬ WAV<small id="track-filename">Только WAV · до 45 МБ, либо ссылка ниже</small></span></span>
+        </label>
+        <label class="upload-file">ОБЛОЖКА *
+          <input id="cover-file" name="cover" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" required>
+          <span class="upload-file-visual"><b>▧</b><span>ЗАГРУЗИТЬ ОБЛОЖКУ<small id="cover-filename">JPG / PNG / WEBP · до 10 МБ</small></span></span>
+        </label>
+      </div>
+      <label>ССЫЛКА НА WAV В ОБЛАКЕ (ЕСЛИ ФАЙЛ БОЛЬШЕ 45 МБ)<input name="cloudLink" type="url" maxlength="500" placeholder="https://disk.yandex.ru/..."></label>
+      <div class="form-stage"><span>04</span> ИСТОРИЯ ДЛЯ ПРОМО РЕЛИЗА</div>
+      <p class="upload-fine">Не обязательно писать пресс-релиз. Ответь на несколько вопросов — по ним мы сможем подготовить интересное описание песни и промоматериалы.</p>
+      <label>КАК ПИСАЛСЯ ТРЕК?<textarea name="promoStory" rows="3" maxlength="1100" placeholder="Где и с кем записывал? Как появилась идея? Были ли интересные моменты?"></textarea></label>
+      <label>О ЧЁМ ПЕСНЯ?<textarea name="promoMeaning" rows="3" maxlength="1100" placeholder="Какой смысл, настроение или история стоят за текстом?"></textarea></label>
+      <label>ЧТО ВДОХНОВИЛО НА СОЗДАНИЕ?<textarea name="promoInspiration" rows="3" maxlength="900" placeholder="Событие, человек, состояние, референс…"></textarea></label>
+      <label>КОМУ МОЖЕТ ОТКЛИКНУТЬСЯ ТРЕК?<textarea name="promoAudience" rows="3" maxlength="900" placeholder="Кто твой слушатель? На какие треки или жанры похожа песня?"></textarea></label>
+      <label>ЧТО СТОИТ ПОДЧЕРКНУТЬ В ПРОМО?<textarea name="promoHighlight" rows="3" maxlength="900" placeholder="Цепляющая строчка, история, факт о релизе, любимый момент…"></textarea></label>
+      <div class="form-stage"><span>05</span> О ТЕБЕ И ОФОРМЛЕНИИ</div>
+      <div class="form-two">
+        <label>КТО ПОДАЁТ РЕЛИЗ? *<select name="legalType" required><option value="">Выбрать</option><option>Физическое лицо</option><option>Самозанятый</option><option>ИП</option><option>ООО / другое юрлицо</option></select></label>
+        <label>ФИО / НАЗВАНИЕ ИП ИЛИ ОРГАНИЗАЦИИ *<input name="legalName" maxlength="250" required placeholder="Как в официальных документах"></label>
+        <label>НОМЕР ТЕЛЕФОНА *<input name="phone" type="tel" maxlength="35" required placeholder="+7 900 000-00-00"></label>
+        <label>E-MAIL *<input name="email" type="email" maxlength="140" required placeholder="name@example.com"></label>
+        <label>ТЕЛЕГРАМ ДЛЯ СВЯЗИ<input name="telegram" maxlength="120" placeholder="@username"></label>
+      </div>
+      <details class="secure-legal">
+        <summary>Какие документы потребуются после согласования? <span>+</span></summary>
+        <p>Для договора и выплат нам также понадобятся:</p>
+        <ul>
+          <li>Дата рождения</li>
+          <li>Паспортные данные: серия и номер, кем и когда выдан</li>
+          <li>Адрес регистрации по паспорту</li>
+          <li>ИНН</li>
+          <li>Банковские реквизиты: получатель, БИК, расчётный счёт</li>
+        </ul>
+        <p>Эти сведения не вводятся в открытую анкету и не уходят в Telegram-бота. Передадим ссылку на защищённый способ оформления при согласовании релиза. Полный номер банковской карты, CVV и коды из SMS не нужны.</p>
+      </details>
+      <label>ДОПОЛНИТЕЛЬНЫЙ КОММЕНТАРИЙ<textarea name="notes" rows="3" maxlength="1100" placeholder="Особые условия, вопросы, даты, пожелания…"></textarea></label>
+      <label class="upload-check"><input name="copyright" type="checkbox" value="yes" required><span>Подтверждаю, что имею права или необходимые разрешения на музыку, текст и обложку.</span></label>
+      <label class="upload-check"><input name="consent" type="checkbox" value="yes" required><span>Согласен на передачу указанных данных и файлов команде Young Sound для рассмотрения заявки и связи со мной. <a href="privacy.html">Подробнее об обработке данных</a>.</span></label>
+      <label class="upload-honey" aria-hidden="true">Не заполнять<input name="website" autocomplete="off" tabindex="-1"></label>
+      <button type="submit" class="ys-btn button-primary upload-submit" id="release-submit">ОТПРАВИТЬ ЗАЯВКУ И ФАЙЛЫ ↗</button>
+      <div id="release-feedback" role="status" aria-live="polite" class="release-feedback"></div>
+      <p class="upload-fine">Подтверждение доставки появится только после ответа сервера. Если приём заявок временно недоступен, свяжись с нами в <a href="${d.links.manager}" target="_blank" rel="noopener noreferrer">Telegram</a>.</p>
+    </form>
+  </div>
 </section></main>`;
+
   const pages={home,services,pricing,cases,artists,contacts,privacy,submit,demo};
   root.innerHTML=header()+pages[page]()+footer();
   const mobileToggle=document.querySelector('.mobile-toggle');
