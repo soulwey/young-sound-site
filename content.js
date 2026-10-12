@@ -213,7 +213,7 @@ window.YS = {
   extraServices: [
     { n:'06', symbol:'✺', title:'Песня под ключ', type:'FULL PRODUCTION', desc:'Создание песни под ключ. Состав работ, сроки и детали согласовываем перед началом.', price:'30 000 ₽', priceValue:30000, minimum:false, key:'turnkey' },
     { n:'07', symbol:'↗', title:'Пресейвы', type:'PRE-SAVE', desc:'Подготовка пресейв-кампании перед выходом релиза для сбора предварительных сохранений. Стоимость зависит от объёма кампании.', price:'от 2 500 ₽', priceValue:2500, minimum:true, key:'presave' },
-    { n:'08', symbol:'Посев', title:'Посевы во ВКонтакте', type:'VK PROMO', desc:'Размещения в сообществах ВКонтакте. Объём, аудиторию и конкретную стоимость согласовываем индивидуально.', price:'от 10 000 ₽', priceValue:10000, minimum:true, key:'vkseed' }
+    { n:'08', symbol:'✳', title:'Посевы во ВКонтакте', type:'VK PROMO', desc:'Размещения в сообществах ВКонтакте. Объём, аудиторию и конкретную стоимость согласовываем индивидуально.', price:'от 10 000 ₽', priceValue:10000, minimum:true, key:'vkseed' }
   ],
   distributionFormats: [
     { key: "single", title: "Сингл", description: "Загрузка одного трека", price: "2 300 ₽", priceValue: 2300 },
