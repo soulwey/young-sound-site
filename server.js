@@ -54,6 +54,7 @@ app.post(SETUP_PATH, express.json({limit:'12kb'}), (req,res)=>{
 async function configureBotWebhook() {
  if(!process.env.TELEGRAM_BOT_TOKEN || !process.env.TELEGRAM_WEBHOOK_SECRET) return;
  const me=await telegram('getMe',new FormData());
+ console.info('Telegram bot verified: @'+me.username);
  if(me?.username?.toLowerCase()!==BOT_USERNAME.toLowerCase()) {
    console.error('Bot username mismatch: webhook not configured');
    return;
@@ -90,7 +91,7 @@ async function telegram(method,payload){
   try{
     const r=await fetch(url,{method:'POST',body:payload,signal:controller.signal});
     const data=await r.json().catch(()=>({ok:false}));
-    if(!r.ok || !data.ok) throw new Error('telegram_api_'+r.status);
+    if(!r.ok || !data.ok) throw new Error('telegram_api_'+r.status+': '+String(data.description||'no description').replace(/\b[0-9]{8,}:[A-Za-z0-9_-]{20,}\b/g,'[redacted]').slice(0,180));
     return data.result;
   } finally {clearTimeout(timeout);}
 }
