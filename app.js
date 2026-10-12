@@ -211,7 +211,8 @@
       </div>
       <label>ССЫЛКА НА WAV В ОБЛАКЕ (ЕСЛИ ФАЙЛ БОЛЬШЕ 45 МБ)<input name="cloudLink" type="url" maxlength="500" placeholder="https://disk.yandex.ru/..."></label>
       <div class="form-stage"><span>04</span> ИСТОРИЯ ДЛЯ ПРОМО РЕЛИЗА</div>
-      <p class="upload-fine">Не обязательно писать пресс-релиз. Ответь на несколько вопросов — по ним мы сможем подготовить интересное описание песни и промоматериалы.</p>
+      <p class="upload-fine">Уже есть готовый пресс-релиз? Вставь его ниже. Если пока нет — ответь на вопросы о треке, и мы подготовим текст для промо по твоим ответам. Все поля необязательные.</p>
+      <label>ГОТОВЫЙ ПРЕСС-РЕЛИЗ (ПО ЖЕЛАНИЮ)<textarea name="pressRelease" rows="7" maxlength="3500" placeholder="Если у тебя уже есть пресс-релиз, вставь его текст сюда целиком. Можно оставить пустым и ответить на вопросы ниже."></textarea></label>
       <label>КАК ПИСАЛСЯ ТРЕК?<textarea name="promoStory" rows="3" maxlength="1100" placeholder="Где и с кем записывал? Как появилась идея? Были ли интересные моменты?"></textarea></label>
       <label>О ЧЁМ ПЕСНЯ?<textarea name="promoMeaning" rows="3" maxlength="1100" placeholder="Какой смысл, настроение или история стоят за текстом?"></textarea></label>
       <label>ЧТО ВДОХНОВИЛО НА СОЗДАНИЕ?<textarea name="promoInspiration" rows="3" maxlength="900" placeholder="Событие, человек, состояние, референс…"></textarea></label>
