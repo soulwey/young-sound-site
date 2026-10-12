@@ -3,6 +3,13 @@
   const api='https://young-sound-upload-api.onrender.com';
   const status=document.querySelector('#delivery-status'),feedback=document.querySelector('#release-feedback'),submit=document.querySelector('#release-submit');
   let ready=false;
+  const selectedFormat=new URLSearchParams(window.location.search).get('format');
+  const releaseType=form.querySelector('[name="releaseType"]');
+  if(selectedFormat&&releaseType){
+    const match=Array.from(releaseType.options).find(o=>o.value.toLowerCase()===selectedFormat.toLowerCase());
+    if(match)releaseType.value=match.value;
+  }
+
   const setFeedback=(text,success=false)=>{feedback.textContent=text;feedback.classList.toggle('sent',success)};
   async function statusCheck(){
     try{
