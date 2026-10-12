@@ -4,6 +4,7 @@ window.YS = {
   links: {
     telegram: 'https://t.me/young_sound',
     manager: 'https://t.me/soulweyyy',
+    yandexLabel: 'https://music.yandex.ru/label/777245',
     vk: 'https://vk.ru/youngsoundprod',
     map: 'https://yandex.ru/maps/org/yang_saund/71248442046/',
     reviews: 'https://yandex.com/maps/org/young_sound/71248442046/reviews/',
@@ -212,6 +213,71 @@ window.YS = {
       "initials": "ПО",
       "url": "https://band.link/eXbuo",
       "cover": "https://avatars.yandex.net/get-music-content/20840698/67bd34eb.a.43478453-1/600x600"
+    }
+  ],
+  artistRoster: [
+    {
+      "name": "PILANA",
+      "track": "Слёзы-океаны",
+      "cover": "https://avatars.yandex.net/get-music-content/17649213/291b620f.a.43478456-1/600x600",
+      "url": "https://band.link/0gU1C",
+      "initials": "PL"
+    },
+    {
+      "name": "платите",
+      "track": "Дропс",
+      "cover": "https://avatars.yandex.net/get-music-content/17740720/a47106bd.a.43478447-1/600x600",
+      "url": "https://band.link/Y0yTh",
+      "initials": "ПЛ"
+    },
+    {
+      "name": "КИШУЛЬГА",
+      "track": "Твои мысли",
+      "cover": "https://avatars.yandex.net/get-music-content/20013662/5ece18bf.a.43478449-1/600x600",
+      "url": "https://band.link/N3yZJ",
+      "initials": "КШ"
+    },
+    {
+      "name": "худак подруги",
+      "track": "Рокэтс",
+      "cover": "https://avatars.yandex.net/get-music-content/20608190/49f31079.a.43478460-1/600x600",
+      "url": "https://band.link/Q8tAR",
+      "initials": "ХП"
+    },
+    {
+      "name": "почти человек",
+      "track": "Вечеринка",
+      "cover": "https://avatars.yandex.net/get-music-content/20840698/67bd34eb.a.43478453-1/600x600",
+      "url": "https://band.link/eXbuo",
+      "initials": "ПЧ"
+    },
+    {
+      "name": "NADEZHDA Talant",
+      "track": "Ты друга НЕ Я",
+      "cover": null,
+      "url": "https://t.me/s/young_sound",
+      "initials": "NT"
+    },
+    {
+      "name": "GAR M",
+      "track": "Та самая",
+      "cover": null,
+      "url": "https://t.me/s/young_sound",
+      "initials": "GM"
+    },
+    {
+      "name": "Buddy Hulk",
+      "track": "Карие глаза",
+      "cover": null,
+      "url": "https://t.me/s/young_sound",
+      "initials": "BH"
+    },
+    {
+      "name": "TRISSA",
+      "track": "Мажет",
+      "cover": null,
+      "url": "https://t.me/young_sound/455",
+      "initials": "TR"
     }
   ],
   packages: [
