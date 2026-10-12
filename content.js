@@ -24,7 +24,9 @@ window.YS = {
     "title": "Запись вокала",
     "type": "RECORDING",
     "desc": "Профессиональная запись вокала в студии с поддержкой звукорежиссёра.",
-    "price": "1 500 ₽"
+    "price": "1 500 ₽",
+    "priceValue": 1500,
+    "minimum": false
   },
   {
     "n": "02",
@@ -32,7 +34,9 @@ window.YS = {
     "title": "Сведение и мастеринг",
     "type": "MIX / MASTER",
     "desc": "Баланс вокала и инструментала, обработка, финальный мастер для площадок.",
-    "price": "7 000 ₽"
+    "price": "7 000 ₽",
+    "priceValue": 7000,
+    "minimum": false
   },
   {
     "n": "03",
@@ -40,7 +44,9 @@ window.YS = {
     "title": "Биты и продакшн",
     "type": "BEAT LAB",
     "desc": "Авторские биты, аранжировки и звук, который подходит твоему стилю.",
-    "price": "7 000 ₽"
+    "price": "7 000 ₽",
+    "priceValue": 7000,
+    "minimum": false
   },
   {
     "n": "04",
@@ -48,7 +54,9 @@ window.YS = {
     "title": "Дистрибуция",
     "type": "DISTRIBUTION",
     "desc": "Подготовка и выпуск одного трека на музыкальных платформах.",
-    "price": "2 300 ₽ / трек"
+    "price": "2 300 ₽ / трек",
+    "priceValue": 2300,
+    "minimum": false
   },
   {
     "n": "05",
@@ -56,7 +64,9 @@ window.YS = {
     "title": "Продвижение в «Моей волне»",
     "type": "YANDEX MUSIC",
     "desc": "Продвижение трека в рекомендательной системе Яндекс Музыки. Индивидуальная стратегия; прослушивания и попадание в рекомендации не гарантируются.",
-    "price": "от 45 000 ₽"
+    "price": "от 45 000 ₽",
+    "priceValue": 45000,
+    "minimum": true
   }
 ],
     cases:   [
@@ -200,9 +210,14 @@ window.YS = {
       "initials": "SO"
     }
   ],
+  extraServices: [
+    { n:'06', symbol:'✺', title:'Песня под ключ', type:'FULL PRODUCTION', desc:'Создание песни под ключ. Состав работ, сроки и детали согласовываем перед началом.', price:'30 000 ₽', priceValue:30000, minimum:false, key:'turnkey' },
+    { n:'07', symbol:'↗', title:'Пресейвы', type:'PRE-SAVE', desc:'Подготовка пресейв-кампании перед выходом релиза для сбора предварительных сохранений.', price:'2 500 ₽', priceValue:2500, minimum:false, key:'presave' },
+    { n:'08', symbol:'Посев', title:'Посевы во ВКонтакте', type:'VK PROMO', desc:'Размещения в сообществах ВКонтакте. Объём, аудиторию и конкретную стоимость согласовываем индивидуально.', price:'от 10 000 ₽', priceValue:10000, minimum:true, key:'vkseed' }
+  ],
   distributionFormats: [
-    { key: "single", title: "Сингл", description: "Загрузка одного трека", price: "2 300 ₽" },
-    { key: "ep", title: "EP", description: "Загрузка мини-альбома", price: "4 500 ₽" },
-    { key: "album", title: "Альбом", description: "Загрузка альбома", price: "6 000 ₽" }
+    { key: "single", title: "Сингл", description: "Загрузка одного трека", price: "2 300 ₽", priceValue: 2300 },
+    { key: "ep", title: "EP", description: "Загрузка мини-альбома", price: "4 500 ₽", priceValue: 4500 },
+    { key: "album", title: "Альбом", description: "Загрузка альбома", price: "6 000 ₽", priceValue: 6000 }
   ]
 };
