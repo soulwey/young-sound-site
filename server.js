@@ -157,4 +157,10 @@ app.use((err,req,res,_next)=>{
  'Ошибка загрузки файла. Проверь размер и формат.';
  res.status(400).json({ok:false,error:userMessage});
 });
-app.listen(process.env.PORT||3001,'0.0.0.0',()=>{console.log('Young Sound upload API started');configureBotWebhook().catch(e=>console.error('Bot webhook setup failed:',e.message));});
+app.listen(process.env.PORT||3001,'0.0.0.0',()=>{
+  console.log('Young Sound upload API started');
+  configureBotWebhook().catch(e=>console.error('Bot webhook setup failed:',e.message));
+  if(process.env.TELEGRAM_CONNECT_TEST==='yes' && configured()) {
+    sendText('✅ <b>Young Sound — Telegram подключён!</b>\n\nЭто тестовое сообщение сервера сайта. Теперь сюда могут приходить заявки артистов и прикреплённые файлы.').then(()=>console.info('YOUNG_SOUND_DELIVERY_TEST_SUCCESS')).catch(e=>console.error('YOUNG_SOUND_DELIVERY_TEST_FAILED: '+e.message));
+  }
+});
