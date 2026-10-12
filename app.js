@@ -220,7 +220,6 @@
       <label>ЧТО СТОИТ ПОДЧЕРКНУТЬ В ПРОМО?<textarea name="promoHighlight" rows="3" maxlength="900" placeholder="Цепляющая строчка, история, факт о релизе, любимый момент…"></textarea></label>
       <div class="form-stage"><span>05</span> О ТЕБЕ И ОФОРМЛЕНИИ</div>
       <div class="form-two">
-        <label>КТО ПОДАЁТ РЕЛИЗ? *<select name="legalType" required><option value="">Выбрать</option><option>Физическое лицо</option><option>Самозанятый</option><option>ИП</option><option>ООО / другое юрлицо</option></select></label>
         <label>ФИО / НАЗВАНИЕ ИП ИЛИ ОРГАНИЗАЦИИ *<input name="legalName" maxlength="250" required placeholder="Как в официальных документах"></label>
         <label>НОМЕР ТЕЛЕФОНА *<input name="phone" type="tel" maxlength="35" required placeholder="+7 900 000-00-00"></label>
         <label>E-MAIL *<input name="email" type="email" maxlength="140" required placeholder="name@example.com"></label>
@@ -231,7 +230,7 @@
         <p>Для договора и выплат нам также понадобятся:</p>
         <ul>
           <li>Дата рождения</li>
-          <li>Паспортные данные: серия и номер, кем и когда выдан</li>
+          <li>Паспортные данные: серия и номер</li>
           <li>Адрес регистрации по паспорту</li>
           <li>ИНН</li>
           <li>Банковские реквизиты: получатель, БИК, расчётный счёт</li>
