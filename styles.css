@@ -269,3 +269,57 @@ em{color:var(--acid);font-style:normal}.live-dot,.status-orbit{display:inline-bl
   .services-grid>.service-card:nth-child(5) .service-price{font-size:clamp(31px,8vw,43px)}
   .mini-prices>a .mini-price{font-size:clamp(23px,6.5vw,32px)}
 }
+
+
+/* Authentic YOUNG SOUND playlist promotion gallery */
+.ys-promo{padding-top:clamp(90px,9vw,160px);padding-bottom:clamp(80px,8vw,135px)}
+.ys-promo .section-heading{max-width:1160px}
+.ys-promo .section-heading h2{font-size:clamp(40px,5.15vw,78px);line-height:1.02}
+.ys-promo-feature{position:relative;display:flex;align-items:end;justify-content:space-between;gap:55px;min-height:310px;padding:42px;background:radial-gradient(ellipse at 85% 20%,#c1ff5938,transparent 49%),#19241a;border:1px solid #83ad63;overflow:hidden;margin:48px 0 40px}
+.ys-promo-feature>div,.ys-promo-feature>p{position:relative;z-index:1}
+.ys-promo-kicker{display:block;font:800 11px var(--body);letter-spacing:.18em;color:#c4ff72;margin-bottom:30px}
+.ys-promo-feature h3{margin:0;font:900 clamp(36px,4.7vw,72px)/1.02 var(--display);letter-spacing:-.075em}
+.ys-promo-feature p{max-width:485px;margin:0 0 8px;color:#cadbce;font-size:15px;line-height:1.85}
+.ys-promo-feature-star{position:absolute;top:-135px;right:80px;color:#c2ff5419;font:420px/1 Arial;pointer-events:none}
+.ys-promo-collections{display:grid;gap:36px}
+.ys-promo-collection{padding:28px 29px 33px;background:linear-gradient(125deg,#181f19,#121913);border:1px solid #3c4f3f;transition:border-color .3s,box-shadow .3s}
+.ys-promo-collection:hover{border-color:#91be69;box-shadow:0 18px 50px #0005}
+.ys-promo-collection-title{display:flex;align-items:center;gap:30px;margin-bottom:26px}
+.ys-promo-collection-title span{font:800 10px var(--body);letter-spacing:.15em;color:#c2ff54;white-space:nowrap}
+.ys-promo-collection-title strong{font:800 16px var(--display);letter-spacing:-.035em}
+.ys-promo-gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:17px}
+.ys-promo-playlist{min-width:0}
+.ys-promo-cover{position:relative;aspect-ratio:1;background:#1c221c url("assets/playlists/playlist-covers.webp") no-repeat;background-size:500% 300%;background-position:var(--col) var(--line);border:1px solid #839075;overflow:hidden;box-shadow:0 7px 27px #0008;transition:transform .4s,box-shadow .4s,border-color .3s}
+.ys-promo-playlist:hover .ys-promo-cover{transform:translateY(-6px) scale(1.025);box-shadow:0 18px 40px #000b,0 0 0 2px #b6ff62;border-color:#b6ff62}
+.ys-promo-cover-arrow{position:absolute;right:11px;bottom:10px;opacity:0;font:28px/1 Arial;color:#c8ff6e;text-shadow:0 2px 8px black;transition:opacity .2s}
+.ys-promo-playlist:hover .ys-promo-cover-arrow{opacity:1}
+.ys-promo-name{margin-top:14px;color:#eef7ed;font:800 clamp(12px,1.1vw,17px)/1.35 var(--body);min-height:2.7em;letter-spacing:-.035em}
+.ys-promo-footer{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:36px;padding-top:20px;border-top:1px solid #3d5140}
+.ys-promo-footer p{font-size:12px;line-height:1.7;color:#9fad9f;max-width:530px;margin:0}
+.ys-promo-footer .ys-btn{flex-shrink:0}
+@media(max-width:1150px){
+ .ys-promo-gallery{gap:12px}
+ .ys-promo-collection{padding:20px}
+ .ys-promo-feature{gap:30px;padding:30px}
+ .ys-promo-feature p{font-size:13px}
+}
+@media(max-width:780px){
+ .ys-promo-feature{display:block;min-height:0}
+ .ys-promo-feature p{margin-top:30px}
+ .ys-promo-gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+ .ys-promo-name{font-size:13px}
+ .ys-promo-footer{flex-direction:column;align-items:stretch}
+ .ys-promo-collection-title{display:block}
+ .ys-promo-collection-title strong{display:block;margin-top:9px}
+}
+@media(max-width:480px){
+ .ys-promo .section-heading h2{font-size:clamp(34px,9vw,44px)}
+ .ys-promo-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:19px 12px}
+ .ys-promo-collection{padding:15px}
+ .ys-promo-collection-title strong{font-size:13px}
+ .ys-promo-feature{padding:25px}
+ .ys-promo-feature h3{font-size:clamp(32px,8vw,42px)}
+ .ys-promo-feature p{font-size:12px}
+ .ys-promo-name{min-height:0}
+}
+@media(prefers-reduced-motion:reduce){.ys-promo-cover{transition:none}}
