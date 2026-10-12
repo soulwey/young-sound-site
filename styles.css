@@ -457,3 +457,22 @@ em{color:var(--acid);font-style:normal}.live-dot,.status-orbit{display:inline-bl
 .ys-distribution-row>div strong{font-size:clamp(16px,5vw,23px)}
 .ys-distribution-row>div small{font-size:9px}
 }
+
+
+/* Instrumental agreement proof attachment on the distribution form */
+.upload-panel .instrumental-agreement{display:grid;gap:10px;min-width:0}
+.upload-panel .instrumental-agreement .upload-file-visual{
+  min-height:82px;padding:14px 17px;
+  border:1px dashed #9cc779;
+  background:linear-gradient(130deg,#202f1c,#101c14);
+}
+.upload-panel .instrumental-agreement .upload-file-visual>b{font-size:28px}
+.upload-panel .instrumental-agreement .upload-file-visual>span{font-size:11px;min-width:0}
+.upload-panel .instrumental-agreement .instrumental-note{
+  display:block;font:500 10px/1.5 var(--body);letter-spacing:0;
+  text-transform:none;color:#a1b3a3;max-width:40ch
+}
+.upload-panel .instrumental-agreement:focus-within .upload-file-visual{
+  outline:2px solid var(--acid);outline-offset:3px
+}
+@media(max-width:670px){.upload-panel .instrumental-agreement .upload-file-visual{min-height:95px}}
