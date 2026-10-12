@@ -97,6 +97,63 @@
       </div>
     </section>`;
   };
+
+  const extraServices=()=>`<section class="wrap block ys-extra-products" id="extra-products">
+    ${eyebrow('07 / УСЛУГИ ДЛЯ АРТИСТОВ','ADDITIONAL SERVICES')}
+    ${title('ДЕЛАЕМ БОЛЬШЕ.<br><em>ДВИГАЕМ ДАЛЬШЕ.</em>','Песня под ключ, пресейвы и посевы во ВКонтакте — отдельно или в составе кампании.')}
+    <div class="services-grid">${d.extraServices.map(serviceCard).join('')}</div>
+    <div class="section-cta">${button('Рассчитать стоимость','calculator.html','button-outline')}</div>
+  </section>`;
+  const calculatorTeaser=()=>`<section class="wrap ys-calculator-teaser reveal">
+    <div><span>NEW / ONLINE ESTIMATE</span><h2>СОБЕРИ ЗАКАЗ.<br><em>УЗНАЙ СТОИМОСТЬ.</em></h2><p>Выбирай услуги Young Sound и считай бюджет ещё до обращения к менеджеру.</p></div>
+    ${button('Открыть калькулятор','calculator.html')}<b aria-hidden="true">₽</b>
+  </section>`;
+  const calcChoice=(x,group,type='checkbox')=>`<label class="ys-calc-choice">
+    <input class="ys-calc-option" type="${type}" name="${type==='radio'?'distribution':'service'}" value="${x.key||x.title}"
+      data-group="${group}" data-label="${x.title}" data-amount="${x.priceValue}" data-minimum="${x.minimum?'1':'0'}">
+    <span class="ys-calc-tick" aria-hidden="true">${type==='radio'?'◉':'✓'}</span>
+    <span class="ys-calc-copy"><strong>${x.title}</strong><small>${x.desc||x.description||''}</small></span><b>${x.price}</b>
+  </label>`;
+  const calculator=()=>{
+    const production=[...d.services.filter(x=>!['Дистрибуция','Продвижение в «Моей волне»'].includes(x.title)),d.extraServices.find(x=>x.key==='turnkey')];
+    const promotion=[...d.extraServices.filter(x=>x.key!=='turnkey'),d.services.find(x=>x.title==='Продвижение в «Моей волне»')];
+    return `<main>${pageHero('08','КАЛЬКУЛЯТОР','СОБЕРИ <em>СВОЙ ЗАКАЗ.</em>','Выбирай услуги и сразу смотри ориентировочную стоимость. Ничего оплачивать не нужно.')}
+      <section class="wrap block ys-calc-layout" id="calculator">
+        <div class="ys-calc-fields">
+          <div class="ys-calc-group reveal"><div class="ys-calc-group-title"><span>01 / ДИСТРИБУЦИЯ</span><h2>ВЫПУСК РЕЛИЗА</h2><p>Выбери один формат или оставь дистрибуцию выключенной.</p></div>
+            <div class="ys-calc-options">
+              <label class="ys-calc-choice"><input class="ys-calc-option" type="radio" name="distribution" value="none" data-group="distribution" data-label="Без дистрибуции" data-amount="0" checked><span class="ys-calc-tick" aria-hidden="true">◉</span><span class="ys-calc-copy"><strong>Без дистрибуции</strong><small>Только другие услуги</small></span><b>0 ₽</b></label>
+              ${d.distributionFormats.map(x=>calcChoice({...x,title:'Дистрибуция — '+x.title},'distribution','radio')).join('')}
+            </div>
+          </div>
+          <div class="ys-calc-group reveal"><div class="ys-calc-group-title"><span>02 / ПРОДАКШН</span><h2>СОЗДАНИЕ МУЗЫКИ</h2><p>Запись, сведение, биты или песня под ключ. Точный состав работ обсудим перед заказом.</p></div>
+            <div class="ys-calc-options">${production.map(x=>calcChoice(x,'production')).join('')}</div>
+          </div>
+          <div class="ys-calc-group reveal"><div class="ys-calc-group-title"><span>03 / ПРОМО</span><h2>ПРОДВИЖЕНИЕ</h2><p>Пресейвы, посевы в сообществах ВК и «Моя волна» на Яндекс Музыке.</p></div>
+            <div class="ys-calc-options">${promotion.map(x=>calcChoice(x,'promotion')).join('')}</div>
+          </div>
+        </div>
+        <aside class="ys-calc-summary reveal" id="ys-calc-summary">
+          <div class="ys-calc-summary-top">ТВОЙ РАСЧЁТ <span>✳</span></div>
+          <p class="ys-calc-summary-caption">ОРИЕНТИРОВОЧНАЯ СТОИМОСТЬ</p>
+          <div class="ys-calc-total" aria-live="polite"><small id="ys-calc-from"></small><strong id="ys-calc-total">0 ₽</strong></div>
+          <p class="ys-calc-summary-hint" id="ys-calc-hint">Выбери хотя бы одну услугу.</p>
+          <div class="ys-calc-summary-lines"><h3>ВЫБРАННЫЕ УСЛУГИ</h3><div id="ys-calc-selected"><p>Пока ничего не выбрано</p></div></div>
+          <div class="ys-calc-contact-fields">
+            <label>КАК К ТЕБЕ ОБРАЩАТЬСЯ?<input type="text" id="ys-calc-name" placeholder="Имя или псевдоним" maxlength="100"></label>
+            <label>КОММЕНТАРИЙ / ССЫЛКА НА ТРЕК<input type="text" id="ys-calc-note" placeholder="Необязательно" maxlength="350"></label>
+          </div>
+          <button class="ys-btn button-primary ys-calc-action" type="button" id="ys-calc-copy" disabled>СКОПИРОВАТЬ РАСЧЁТ ↗</button>
+          <a class="ys-btn button-outline ys-calc-action" href="${d.links.manager}" target="_blank" rel="noopener noreferrer">НАПИСАТЬ В TELEGRAM ↗</a>
+          <button class="ys-calc-reset" id="ys-calc-reset" type="button">СБРОСИТЬ ВЫБОР ↻</button>
+          <p class="ys-calc-feedback" id="ys-calc-feedback" role="status" aria-live="polite"></p>
+          <p class="ys-calc-disclaimer">«От» — стартовая цена. Пресейвы от 2 500 ₽, посевы ВК от 10 000 ₽, «Моя волна» от 45 000 ₽. Итоговую сумму и состав работ подтвердит менеджер. Калькулятор не принимает оплату и не отправляет заявку автоматически.</p>
+        </aside>
+      </section>
+      ${cta()}
+    </main>`;
+  };
+
   const studioServices=()=>`<section class="wrap block ys-studio-services" id="studio-services">
     ${eyebrow('05 / СТУДИЯ','RECORDING / MIX / BEATS')}
     ${title('ЗАПИШЕМ.<br><em>СВЕДЁМ. СОЗДАДИМ.</em>','Помимо дистрибуции и продвижения, поможем сделать саму музыку: от записи вокала до финального мастера и оригинального бита.')}
@@ -137,10 +194,10 @@
     </div>
   </section>`;
 
-  const hero=()=>`<main><section class="hero"><div class="hero-noise"></div><div class="wrap hero-inner"><div class="hero-copy"><div class="hero-meta"><span class="live-dot"></span>YOUNG SOUND / СТУДИЯ И ЛЕЙБЛ</div><h1>ТВОЙ ЗВУК.<br><span>ТВОИ</span><br><em>ПРАВИЛА.</em></h1><div class="hero-bottom"><p>От первой идеи до релиза в рекомендациях. Делаем музыку, визуал и продвижение в одном месте.</p><div class="hero-buttons">${button('Отправить демо','demo.html')}${button('Наши кейсы','cases.html','button-glass')}</div></div></div><div class="hero-graphic" aria-hidden="true"><div class="orbit orbit-1"></div><div class="orbit orbit-2"></div><div class="orbit-center"><span>YS</span><small>✳ EST. FOR MUSIC ✳</small></div><div class="hero-corner-label">STAY<br>YOUNG.<br>SOUND<br>LOUD.</div><div class="wave-bars">${Array.from({length:39},(_,i)=>`<i style="--h:${16+Math.round((Math.sin(i*0.72)+1)*15+(Math.sin(i*1.77)+1)*16)}px;--i:${i}"></i>`).join('')}</div></div></div><div class="hero-foot wrap"><span>001 — ПОЛНЫЙ ЦИКЛ РЕЛИЗА</span><span>СКРОЛЛ ВНИЗ ↓</span><span>МОСКОВСКАЯ ОБЛАСТЬ / ONLINE WORLDWIDE</span></div></section>${tape()}${distributionFeature()}${playlistPromo()}${myWaveFeature()}${caseSection()}${studioServices()}${studioShowcase()}${reviews()}${artistRoster(true)}${releases()}${cta()}</main>`;
+  const hero=()=>`<main><section class="hero"><div class="hero-noise"></div><div class="wrap hero-inner"><div class="hero-copy"><div class="hero-meta"><span class="live-dot"></span>YOUNG SOUND / СТУДИЯ И ЛЕЙБЛ</div><h1>ТВОЙ ЗВУК.<br><span>ТВОИ</span><br><em>ПРАВИЛА.</em></h1><div class="hero-bottom"><p>От первой идеи до релиза в рекомендациях. Делаем музыку, визуал и продвижение в одном месте.</p><div class="hero-buttons">${button('Отправить демо','demo.html')}${button('Наши кейсы','cases.html','button-glass')}</div></div></div><div class="hero-graphic" aria-hidden="true"><div class="orbit orbit-1"></div><div class="orbit orbit-2"></div><div class="orbit-center"><span>YS</span><small>✳ EST. FOR MUSIC ✳</small></div><div class="hero-corner-label">STAY<br>YOUNG.<br>SOUND<br>LOUD.</div><div class="wave-bars">${Array.from({length:39},(_,i)=>`<i style="--h:${16+Math.round((Math.sin(i*0.72)+1)*15+(Math.sin(i*1.77)+1)*16)}px;--i:${i}"></i>`).join('')}</div></div></div><div class="hero-foot wrap"><span>001 — ПОЛНЫЙ ЦИКЛ РЕЛИЗА</span><span>СКРОЛЛ ВНИЗ ↓</span><span>МОСКОВСКАЯ ОБЛАСТЬ / ONLINE WORLDWIDE</span></div></section>${tape()}${distributionFeature()}${playlistPromo()}${myWaveFeature()}${caseSection()}${studioServices()}${extraServices()}${calculatorTeaser()}${studioShowcase()}${reviews()}${artistRoster(true)}${releases()}${cta()}</main>`;
   const pageHero=(number,kicker,h,desc)=>`<section class="subhero wrap"><div class="subhero-meta"><span class="live-dot"></span> YS / ${number} / ${kicker}</div><h1>${h}</h1><p>${desc}</p><span class="subhero-glyph">✳</span></section>`;
   const home=hero;
-  const services=()=> `<main>${pageHero('01','ЧТО МЫ ДЕЛАЕМ','ПОЛНЫЙ <em>ЦИКЛ.</em>','Сначала выпускаем музыку, показываем результаты в плейлистах, затем помогаем с продвижением. Запись, сведение и биты — тоже у нас.')}${distributionFeature()}${playlistPromo()}${myWaveFeature()}${studioServices()}${studioShowcase()}${cta()}</main>`;
+  const services=()=> `<main>${pageHero('01','ЧТО МЫ ДЕЛАЕМ','ПОЛНЫЙ <em>ЦИКЛ.</em>','Сначала выпускаем музыку, показываем результаты в плейлистах, затем помогаем с продвижением. Запись, сведение и биты — тоже у нас.')}${distributionFeature()}${playlistPromo()}${myWaveFeature()}${studioServices()}${extraServices()}${calculatorTeaser()}${studioShowcase()}${cta()}</main>`;
   const pricing=()=>`<main>
     ${pageHero('02','АКТУАЛЬНЫЕ ЦЕНЫ','ПРОЗРАЧНЫЕ <em>ТАРИФЫ.</em>','Отгрузка сингла, EP и альбома по фиксированным ценам. Запись, сведение и продвижение — отдельно.')}
     ${distributionRates()}
@@ -150,6 +207,7 @@
       <div class="mini-prices">${[...d.services.filter(s=>s.title!=='Дистрибуция'),...d.extraServices].map(s=>`<a href="contacts.html?service=${encodeURIComponent(s.title)}"><div><strong>${s.title}</strong><span class="mini-price">${s.price}</span></div><b>↗</b></a>`).join('')}</div>
       <p class="package-note">Перед началом работ согласуем техническое задание, состав услуг и сроки.</p>
     </section>
+    ${calculatorTeaser()}
     ${cta()}
   </main>`;
   const cases=()=>`<main>${pageHero('03','НАШИ РАБОТЫ','ЗВУК, <em>КОТОРЫЙ СЛЫШАТ.</em>','Скриншоты и цифры не заменяют музыку. Но подтверждают, что мы действительно работаем с релизами.')}${caseSection()}${trust()}${reviews()}${releases()}${cta()}</main>`;
@@ -279,7 +337,7 @@
   </div>
 </section></main>`;
 
-  const pages={home,services,pricing,cases,artists,contacts,privacy,submit,demo};
+  const pages={home,services,pricing,calculator,cases,artists,contacts,privacy,submit,demo};
   root.innerHTML=header()+pages[page]()+footer();
   const mobileToggle=document.querySelector('.mobile-toggle');
   mobileToggle?.addEventListener('click',()=>{ const expanded=mobileToggle.getAttribute('aria-expanded')==='true'; mobileToggle.setAttribute('aria-expanded',String(!expanded)); document.querySelector('.site-header')?.classList.toggle('mobile-open',!expanded); });
