@@ -26,6 +26,46 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+const BOT_USERNAME = 'YoungSound1_bot';
+const SETUP_PATH = '/api/telegram-webhook';
+function checkHeaderSecret(received, expected) {
+ if(!received||!expected) return false;
+ const a=Buffer.from(received),b=Buffer.from(expected);
+ return a.length===b.length && crypto.timingSafeEqual(a,b);
+}
+app.post(SETUP_PATH, express.json({limit:'12kb'}), (req,res)=>{
+ if(!checkHeaderSecret(req.get('X-Telegram-Bot-Api-Secret-Token'),process.env.TELEGRAM_WEBHOOK_SECRET||'')) return res.sendStatus(403);
+ res.sendStatus(200);
+ const msg=req.body?.message;
+ const txt=msg?.text?.trim();
+ const pairingCode=process.env.TELEGRAM_SETUP_CODE;
+ if(!pairingCode || !txt || !msg?.chat?.id) return;
+ if(txt !== '/start '+pairingCode && txt !== '/connect '+pairingCode) return;
+ const chatId=String(msg.chat.id);
+ if(!/^-?[0-9]+$/.test(chatId)) return;
+ // Only pairing messages containing the long, private setup code qualify.
+ console.info('YOUNG_SOUND_ADMIN_CHAT_PAIRING_ID='+chatId);
+ const f=new FormData();
+ f.set('chat_id',chatId);
+ f.set('text','✅ Young Sound: бот получил запрос на привязку. Сайт завершит подключение после сохранения настроек.');
+ telegram('sendMessage',f).catch(e=>console.error('Bot pairing response failed:',e.message));
+});
+async function configureBotWebhook() {
+ if(!process.env.TELEGRAM_BOT_TOKEN || !process.env.TELEGRAM_WEBHOOK_SECRET) return;
+ const me=await telegram('getMe',new FormData());
+ if(me?.username?.toLowerCase()!==BOT_USERNAME.toLowerCase()) {
+   console.error('Bot username mismatch: webhook not configured');
+   return;
+ }
+ const form=new FormData();
+ form.set('url','https://young-sound-upload-api.onrender.com'+SETUP_PATH);
+ form.set('secret_token',process.env.TELEGRAM_WEBHOOK_SECRET);
+ form.set('allowed_updates',JSON.stringify(['message']));
+ await telegram('setWebhook',form);
+ console.info('Young Sound Telegram bot webhook active: @'+BOT_USERNAME);
+}
+
 app.get('/health', (_req,res)=>res.json({ok:true,service:'young-sound-upload'}));
 app.get('/api/status', (_req,res)=>res.json({ok:true,configured:configured(),maxAudioMb:45,maxCoverMb:10}));
 
@@ -116,4 +156,4 @@ app.use((err,req,res,_next)=>{
  'Ошибка загрузки файла. Проверь размер и формат.';
  res.status(400).json({ok:false,error:userMessage});
 });
-app.listen(process.env.PORT||3001,'0.0.0.0',()=>console.log('Young Sound upload API started'));
+app.listen(process.env.PORT||3001,'0.0.0.0',()=>{console.log('Young Sound upload API started');configureBotWebhook().catch(e=>console.error('Bot webhook setup failed:',e.message));});
